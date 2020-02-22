@@ -58,7 +58,7 @@ class SQLHandle(object):
         self.con = server_connection
         self.cursor = self.con.cursor()
 
-    def query(self, command):
+    def execute(self, command):
         '''
         '''
         self.cursor.execute(command)
@@ -71,3 +71,10 @@ class SQLHandle(object):
             results = None
 
         return results
+
+if __name__ == '__main__':
+    from . import functions
+    sql_handle = SQLHandle.get_create()
+
+    command = functions.CREATE_BAP_TRANS
+    sql_handle.execute(command)
