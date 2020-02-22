@@ -1,5 +1,10 @@
 ## Imports
 
+# Python standard library
+import logging
+
+
+
 # Postgres and SQL
 from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database
@@ -7,6 +12,12 @@ import psycopg2
 
 # Package
 import functions
+
+
+## Logging
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+logger = logging.getLogger('bapdb')
+
 
 ## Globals
 USERNAME = 'postgres'
@@ -70,6 +81,7 @@ class SQLHandle(object):
             if len(results) == 0:
                 results = None
         except psycopg2.ProgrammingError:
+            logger.info('Programming error in fetching results')
             results = None
 
         return results
@@ -78,4 +90,4 @@ if __name__ == '__main__':
     sql_handle = SQLHandle.get_create()
 
     command = functions.CREATE_BAP_TRANS
-    sql_handle.execute(command)
+    print(sql_handle.execute(command))
