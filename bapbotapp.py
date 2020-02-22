@@ -10,9 +10,8 @@ import time
 from flask import Flask, request
 
 # Project
-from .bap import Bap
-from . import database as db
-from . import handlers
+import bapbot.handlers as handlers
+
 
 ## Globals
 GET = 'GET'
