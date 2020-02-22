@@ -32,7 +32,7 @@ HOST = 'localhost'
 def _get_timestamp():
     """
     """
-    return datetime.datetime.now()
+    return str(datetime.datetime.now())
 
 
 def _create_database(username, password, host, port, db_name):
