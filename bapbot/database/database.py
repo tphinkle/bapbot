@@ -6,7 +6,7 @@ from sqlalchemy_utils import database_exists, create_database
 import psycopg2
 
 # Package
-from . imporot functions
+from . import functions
 
 ## Globals
 USERNAME = 'postgres'
