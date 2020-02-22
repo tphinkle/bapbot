@@ -44,7 +44,7 @@ class SQLHandle(object):
     """
 
     @staticmethod
-    def get_create(db_name=DBNAME, username=USERNAME, password=PASSWORD, host=HOST):
+    def get_create(db_name=DB_NAME, username=USERNAME, password=PASSWORD, host=HOST):
         """
         """
         connection = _get_server_connection(db_name, username, password, host)
@@ -53,7 +53,7 @@ class SQLHandle(object):
     def __init__(self, server_connection):
         """
         """
-        self.con = server_connetion
+        self.con = server_connection
         self.cursor = self.con.cursor()
 
     def query(self, command):
