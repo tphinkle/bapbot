@@ -88,8 +88,8 @@ class SQLHandle(object):
             results = self.cursor.fetchall()
             if len(results) == 0:
                 results = None
-        except psycopg2.ProgrammingError:
-            logger.info('Programming error in fetching results')
+        except psycopg2.ProgrammingError as e:
+            logger.info('Programming error in fetching results\n{}'.format(e))
             results = None
 
         return results
