@@ -18,7 +18,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='bapbot',  # Required
-    version='1e-9'
+    version='1e-9',
     description='A discord app for bapping your friends',
     packages=find_packages(),
 )
