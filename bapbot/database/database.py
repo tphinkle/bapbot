@@ -85,7 +85,7 @@ class SQLHandle(object):
         '''
         '''
         self.cursor.execute(command, kwargs)
-        self.cursor.commit()
+        self.con.commit()
         try:
             results = self.cursor.fetchall()
             if len(results) == 0:
