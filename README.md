@@ -18,4 +18,5 @@
 
 ## Commands
 - `CREATE DATABASE bapdb;`
-- Get list ofo all databases `\l`
+- Get list of all databases `\l`
+- Connect to database `\connect DBNAME`
