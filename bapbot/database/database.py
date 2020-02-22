@@ -42,6 +42,7 @@ def _get_server_connection(db_name, username, password, host):
 class SQLHandle(object):
     """
     """
+    CURSORNAME = 'cur'
 
     @staticmethod
     def get_create(db_name=DBNAME, username=USERNAME, password=PASSWORD, host=HOST):
@@ -54,7 +55,7 @@ class SQLHandle(object):
         """
         """
         self.con = server_connection
-        self.cursor = self.con.cursor()
+        self.cursor = self.con.cursor(SQLHandle.CURSORNAME)
 
     def query(self, command):
         '''
