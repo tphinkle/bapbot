@@ -32,11 +32,12 @@ def _get_engine(username, password, host, port, db_name):
             .format(username, password, host, port, db_name))
 
 
-def _get_server_connection(db_name, username, password, host):
+def _get_server_connection(
+    db_name=db_name, username=username, password=password, host=host):
     """
     """
     # Create connection and cursor object to insert info into db
-    return SQLHandle(psycopg2.connect(database = db_name, user = username, password = password, host = host))
+    return psycopg2.connect(database=db_name, user=username, password=password, host=host)
 
 
 class SQLHandle(object):
@@ -48,8 +49,8 @@ class SQLHandle(object):
     def get_create(db_name=DBNAME, username=USERNAME, password=PASSWORD, host=HOST):
         """
         """
-        connection = _get_server_connection(db_name, username, password, host)
-        return SQLHandle(connection)
+        server_connection = _get_server_connection(db_name, username, password, host)
+        return SQLHandle(server_connection)
 
     def __init__(self, server_connection):
         """
