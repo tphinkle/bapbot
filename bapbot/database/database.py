@@ -5,6 +5,9 @@ from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database
 import psycopg2
 
+# Package
+import . functions
+
 ## Globals
 USERNAME = 'postgres'
 DBNAME = 'bapdb'
@@ -73,7 +76,6 @@ class SQLHandle(object):
         return results
 
 if __name__ == '__main__':
-    import . functions
     sql_handle = SQLHandle.get_create()
 
     command = functions.CREATE_BAP_TRANS
