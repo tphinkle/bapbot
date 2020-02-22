@@ -1,5 +1,14 @@
 #
 
+# EC2
+1. Set up security group to allow inbound and outbound traffic, see: https://aws.amazon.com/premiumsupport/knowledge-center/connect-http-https-ec2/
+and
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#WorkingWithSecurityGroups
+2. Attach the security group to EC2 instance
+
+# Configuring the server
+1. See https://www.datasciencebytes.com/bytes/2015/02/24/running-a-flask-app-on-aws-ec2/
+
 # Flask
 1. Export FLASK_APP: `export FLASK_APP=bapbot`
 2. Start the flask server `flask run`

@@ -28,6 +28,8 @@ class BapHandler(object):
         bappee = request_args.get(BapHandler.BAPPEE_KEY)
         bap_type = request_args.get(BapHandler.BAP_TYPE_KEY)
         time = utils.get_timestamp()
+
+        try:
         bap = Bap(timestamp, bapper, bappee, type)
 
         # Log bap

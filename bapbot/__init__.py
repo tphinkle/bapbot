@@ -47,6 +47,7 @@ def create_app(test_config=None):
     def bap():
         if request.method == POST:
             bap_handlers.handle_bap_post(request.args)
+        return 'ok'
 
 
     return app
