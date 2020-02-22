@@ -1,1 +1,2 @@
-import database, functions
+from . import database
+from . import functions

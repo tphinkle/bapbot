@@ -1,5 +1,9 @@
 #
 
+# Flask
+1. Export FLASK_APP: `export FLASK_APP=bapbot`
+2. Start the flask server `flask run`
+
 # PostgreSQL
 ## Setting up the postgres server
 1. Log into root: `sudo su -`
