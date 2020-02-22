@@ -33,7 +33,7 @@ def _get_engine(username, password, host, port, db_name):
 
 
 def _get_server_connection(
-    db_name=db_name, username=username, password=password, host=host):
+    db_name=DBNAME, username=USERNAME, password=PASSWORD, host=HOST):
     """
     """
     # Create connection and cursor object to insert info into db
