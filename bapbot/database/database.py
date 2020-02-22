@@ -67,10 +67,9 @@ class SQLHandle(object):
         self.cursor.execute(command)
         try:
             results = self.cursor.fetchall()
+            if len(results) == 0:
+                results = None
         except psycopg2.ProgrammingError:
-            pass
-
-        if len(results) == 0:
             results = None
 
         return results
