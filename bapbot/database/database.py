@@ -6,11 +6,11 @@ from sqlalchemy_utils import database_exists, create_database
 import psycopg2
 
 ## Globals
-username = 'postgres'
-dbname = 'bapdb'
-port     = '5432'
-password = 'password'
-host     = 'localhost'
+USERNAME = 'postgres'
+DBNAME = 'bapdb'
+PORT = '5432'
+PASSWORD = 'password'
+HOST = 'localhost'
 
 
 def _create_database(username, password, host, port, db_name):
@@ -44,7 +44,7 @@ class SQLHandle(object):
     """
 
     @staticmethod
-    def get_create(db_name, username, password, host):
+    def get_create(db_name=DB_NAME, username=USERNAME, password=PASSWORD, host=HOST):
         """
         """
         connection = _get_server_connection(db_name, username, password, host)
