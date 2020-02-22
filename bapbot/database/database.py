@@ -94,3 +94,4 @@ if __name__ == '__main__':
     print(sql_handle.execute(command))
 
     command = 'select * from bap_trans_test'
+    print(sql_handle.execute(command))
