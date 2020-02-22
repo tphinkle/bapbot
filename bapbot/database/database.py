@@ -27,7 +27,7 @@ class SQLHandle(object):
         self.con = server_connetion
         self.cursor = self.con.cursor()
 
-    def query(self,, command):
+    def query(self, command):
         '''
         '''
         self.cursor.execute(command)
