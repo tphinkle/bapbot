@@ -10,21 +10,23 @@ import time
 from flask import Flask, request
 
 # Project
-from . import constants
+from .bap import Bap
 from . import database as db
+from . import handlers
 
 
-def _get_time():
-    """
-    """
-    return time.time()
+## Globals
+GET = 'GET'
+POST = 'POST'
 
-def _get_timestamp():
-    """
-    """
-    return datetime.datetime.now()
 
+## Functions
 def create_app(test_config=None):
+
+    # Set up handlers
+    bap_handler = handlers.BapHandler()
+
+
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
@@ -39,20 +41,12 @@ def create_app(test_config=None):
         # load the test config if passed in
         app.config.from_mapping(test_config)
 
-    @app.route('/bap', methods=('GET', 'POST'))
+
+
+    @app.route('/bap', methods=(GET, POST))
     def bap():
-        if request.method == 'POST':
+        if request.method == POST:
+            bap_handlers.handle_bap_post(request.args)
 
-            # Get bapper
-            bapper = request.args.get(constants.bapper_key, DEFAULT_BAPPER)
-            bapped = request.args.get(constants.bappee_key, DEFAULT_BAPPEE)
-            bap_type = request.args.get(constants.bap_type_key, DEFAULT_BAP_TYPE)
-            time = _get_time()
-
-            # Update DB
-            db.update_db(bapper, bapped, bap_type, time)
-
-            #
-            return str((bapper, bapped))
 
     return app

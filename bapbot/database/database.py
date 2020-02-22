@@ -99,13 +99,4 @@ class SQLHandle(object):
 if __name__ == '__main__':
     sql_handle = SQLHandle.get_create()
 
-    command = functions.CREATE_BAP_TRANS
-    print(sql_handle.execute(command))
-
-    command = 'select * from bap_trans_test'
-    print(sql_handle.execute(command))
-
-    command = "insert into bap_trans_test(timestamp, bapper, bappee, baptype) " \
-              "VALUES(%(timestamp)s, %(bapper)s, %(bappee)s, %(baptype)s)" \
-
-    sql_handle.execute(command, timestamp=_get_timestamp(), bapper='jon', bappee='laos', baptype='ultra')
+    functions.create_bap_trans(sql_handle)

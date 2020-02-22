@@ -1,5 +1,18 @@
-CREATE_BAP_TRANS_TEST = \
-    'CREATE TABLE bap_trans_test (timestamp TIMESTAMPTZ, bapper TEXT, bappee TEXT, baptype TEXT)'
 
-CREATE_BAP_TRANS = \
-    'CREATE TABLE IF NOT EXISTS bap_trans (timestamp TIMESTAMPTZ, bapper TEXT, bappee TEXT, baptype TEXT)'
+
+def log_bap(sql_handle, bap):
+    """
+    """
+
+    command = "insert into bap_trans(timestamp, bapper, bappee, baptype) " \
+              "VALUES(%(timestamp)s, %(bapper)s, %(bappee)s, %(baptype)s)"
+    return sql_handle.execute(
+        command, bap.timestamp, bap.bapper, bap.bappee, bap.type)
+
+
+def create_bap_trans(sql_handle):
+    """
+    """
+    CREATE_BAP_TRANS = \
+        'CREATE TABLE IF NOT EXISTS bap_trans (timestamp TIMESTAMPTZ, bapper TEXT, bappee TEXT, baptype TEXT)'
+    return sql_handle.execute(CREATE_BAP_TRANS)
