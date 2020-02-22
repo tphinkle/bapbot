@@ -92,3 +92,5 @@ if __name__ == '__main__':
 
     command = functions.CREATE_BAP_TRANS
     print(sql_handle.execute(command))
+
+    command = 'select * from bap_trans_test'
