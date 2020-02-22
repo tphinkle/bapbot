@@ -79,10 +79,10 @@ class SQLHandle(object):
         self.con = server_connection
         self.cursor = self.con.cursor()
 
-    def execute(self, command):
+    def execute(self, command, **kwargs):
         '''
         '''
-        self.cursor.execute(command)
+        self.cursor.execute(command, kwargs)
         try:
             results = self.cursor.fetchall()
             if len(results) == 0:
@@ -105,4 +105,4 @@ if __name__ == '__main__':
     command = 'insert into bap_trans_test(timestamp, bapper, bappee, baptype) ' \
               'VALUES(%(timestamp), %(bapper), %(bappee), %(baptype))' \
 
-    cur.execute(command, timestamp=_get_timestamp(), bapper='jon', bappee='laos', baptype='ultra')
+    ssql_handle.execute(command, timestamp=_get_timestamp(), bapper='jon', bappee='laos', baptype='ultra')
