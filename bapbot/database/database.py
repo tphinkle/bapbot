@@ -27,6 +27,12 @@ PORT = '5432'
 PASSWORD = 'password'
 HOST = 'localhost'
 
+## Functions
+def _get_timestamp():
+    """
+    """
+    return datetime.datetime.now()
+
 
 def _create_database(username, password, host, port, db_name):
     """
@@ -95,3 +101,8 @@ if __name__ == '__main__':
 
     command = 'select * from bap_trans_test'
     print(sql_handle.execute(command))
+
+    command = 'insert into bap_trans_test(timestamp, bapper, bappee, baptype) ' \
+              'VALUES(%(timestamp), %(bapper), %(bappee), %(baptype))' \
+
+    cur.execute(command, timestamp=_get_timestamp(), bapper='jon', bappee='laos', baptype='ultra')

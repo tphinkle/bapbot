@@ -1,6 +1,7 @@
 ## Imports
 
 # Python standard library
+import datetime
 import json
 import os
 import time
@@ -18,6 +19,10 @@ def _get_time():
     """
     return time.time()
 
+def _get_timestamp():
+    """
+    """
+    return datetime.datetime.now()
 
 def create_app(test_config=None):
     # create and configure the app
