@@ -6,7 +6,7 @@ from . import database as db
 from . import utils
 
 
-class BapHandler(objet):
+class BapHandler(object):
     """
     """
     BAPPEE_KEY = 'bappee'
