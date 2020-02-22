@@ -104,6 +104,6 @@ if __name__ == '__main__':
     print(sql_handle.execute(command))
 
     command = "insert into bap_trans_test(timestamp, bapper, bappee, baptype) " \
-              "VALUES(%(timestamp)s, '%(bapper)s', '%(bappee)s', '%(baptype)s')" \
+              "VALUES(%(timestamp)s, %(bapper)s, %(bappee)s, %(baptype)s)" \
 
     sql_handle.execute(command, timestamp=_get_timestamp(), bapper='jon', bappee='laos', baptype='ultra')
