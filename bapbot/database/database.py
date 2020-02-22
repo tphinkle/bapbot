@@ -32,6 +32,7 @@ HOST = 'localhost'
 def _get_timestamp():
     """
     """
+    return datetime.datetime.now()
     return str(datetime.datetime.now())
 
 
