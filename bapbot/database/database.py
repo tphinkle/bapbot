@@ -54,13 +54,13 @@ class SQLHandle(object):
         """
         """
         self.con = server_connection
-        self.cursor = self.con.cursor
+        self.cursor = self.con.cursor()
 
     def query(self, command):
         '''
         '''
         self.cursor.execute(command)
-        results = SQLHandle.cursor.fetchall()
+        results = self.cursor.fetchall()
 
         if len(results) == 0:
             results = None
