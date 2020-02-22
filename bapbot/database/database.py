@@ -36,13 +36,13 @@ def _get_server_connection(db_name, username, password, host):
     """
     """
     # Create connection and cursor object to insert info into db
-    return SqlHandle(psycopg2.connect(database = db_name, user = username, password = password, host = host))
+    return SQLHandle(psycopg2.connect(database = db_name, user = username, password = password, host = host))
 
 
 class SQLHandle(object):
     """
     """
-    
+
     @staticmethod
     def get_create(db_name, username, password, host):
         """

@@ -1,4 +1,4 @@
-# 
+#
 
 # PostgreSQL
 ## Setting up the postgres server
@@ -12,7 +12,10 @@
 2. Log into database `psql`
 3. To exit, type `\q`
 
+## Setting up connection via Python
+1. Install packages in `requirements.txt`
+2. Follow instructions here https://stackoverflow.com/questions/28253681/you-need-to-install-postgresql-server-dev-x-y-for-building-a-server-side-extensi
+
 ## Commands
 - `CREATE DATABASE bapdb;`
 - Get list ofo all databases `\l`
-
