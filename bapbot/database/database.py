@@ -73,7 +73,7 @@ class SQLHandle(object):
         return results
 
 if __name__ == '__main__':
-    from . import functions
+    import .functions
     sql_handle = SQLHandle.get_create()
 
     command = functions.CREATE_BAP_TRANS
