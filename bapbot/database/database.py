@@ -54,7 +54,7 @@ class SQLHandle(object):
         """
         """
         self.con = server_connection
-        self.cursor = self.con.cursor()
+        self.cursor = self.con.cursor
 
     def query(self, command):
         '''
