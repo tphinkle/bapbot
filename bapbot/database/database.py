@@ -6,7 +6,7 @@ from sqlalchemy_utils import database_exists, create_database
 import psycopg2
 
 ## Globals
-username = 'bap'
+username = 'postgres'
 dbname = 'bapdb'
 port     = '5432'
 password = 'password'

@@ -5,7 +5,7 @@
 1. Log into root: `sudo su -`
 2. Install postgresql `apt-get install postgresql postgresql-contrib`
 3. Configure postgresql to start upon server boot `update-rc.d posstgresql enable`
-4. Start the server `servie postgresql start`
+4. Start the server `service postgresql start`
 
 ## Connecting to PostgreSQL
 1. Log into postgres user: `su - postgres`
