@@ -94,7 +94,10 @@ class SQLHandle(object):
 
         return results
 
+
 if __name__ == '__main__':
     sql_handle = SQLHandle.get_create()
 
-    functions.create_bap_trans(sql_handle)
+    functions._create_bap_trans(sql_handle)
+    functions._create_players(sql_handle)
+    functions._create_levels(sql_handle)

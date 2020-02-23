@@ -74,6 +74,7 @@ def get_player_level(sql_handle, player_name):
 def get_max_baps_allowed(sql_handle, player):
     """
     """
+    pass
 
 
 
