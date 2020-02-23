@@ -14,7 +14,7 @@ class POST(object):
         """
         """
 
-        return {POST.BAPPER_KEY: bapper,
+        return json.dumps({POST.BAPPER_KEY: bapper,
                 POST.BAPPEE_KEY: bappee,
                 POST.BAP_TYPE_KEY: bap_type,
-                POST.TIMESTAMP_KEY: timestamp}
+                POST.TIMESTAMP_KEY: timestamp})
