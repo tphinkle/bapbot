@@ -103,11 +103,7 @@ def get_player(sql_handle, player_name):
     if players is None:
         return []
 
-    player_name = players[0][0]
-    join_date = players[0][1]
-    level = players[0][2]
-    experience = players[0][3]
-    return (player_name, join_date, level, experience)
+    return players[0]
 
 
 def _create_levels(sql_handle):
@@ -122,4 +118,9 @@ def get_level(sql_handle, level):
     query = "select * from {} where {} = %(level)s" \
         .format(schema.LevelsSchema.TABLE_NAME,
                 schema.LevelsSchema.LEVEL)
-    level = sql_handle.execute(query, level=level)
+    levels = sql_handle.execute(query, level=level)
+
+    if levels is None:
+        return []
+
+    return levels[0]

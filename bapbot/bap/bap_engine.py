@@ -3,6 +3,10 @@
 # Project
 from .. import database as db
 from .. import utils
+from .bap import Bap
+from .level imporot Level
+from .player import Player
+
 
 
 class BapEngine(object):
@@ -29,9 +33,8 @@ class BapEngine(object):
         date = timestamp.date()
         baps_today = db.functions.get_baps(
             self._sql_handle, bapper=player_name, bap_type=bap_type, date_dt=date)
-        player = db.functions.get_player(self._sql_handle, player_name)
-        raise ValueError('player', player)
-        level = db.functions.get_level(self._sql_handle, player.level)
+        player = Player(*from_sql(db.functions.get_player(self._sql_handle, player_name)))
+        level = Level(*db.functions.get_level(self._sql_handle, player.level))
 
         if len(baps_today) >= level.get_daily_bap_limit(bap_type):
             return False
