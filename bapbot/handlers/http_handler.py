@@ -6,7 +6,7 @@ import requests
 # Project
 import requests
 from .. import utils
-from . import REST
+from .. import REST
 
 
 SERVER_URL = utils.load_server_config()
@@ -24,7 +24,7 @@ class HTTPHandler(object):
         """
         """
         # Bapper
-        data = REST.assemble_bap_POST(bapper, bappee, bap_type, timestamp)
+        data = REST.bap.POST.assemble(bapper, bappee, bap_type, timestamp)
         requests.post(SERVER_URL, data=data)
 
     def receive_bap_event(self):

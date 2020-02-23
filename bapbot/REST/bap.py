@@ -6,7 +6,7 @@ class POST(object):
     TIMESTAMP_KEY = 'timestamp'
 
     @staticmethod
-    def assemble_bap_POST_data(bapper, bappee, bap_type, timestamp):
+    def assemble(bapper, bappee, bap_type, timestamp):
         """
         """
 
