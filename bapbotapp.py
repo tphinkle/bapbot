@@ -7,6 +7,8 @@ import os
 import time
 
 # Flask
+sys.path.append('/var/www/html/bapbot/env/lib/python3.6/site-packages/')
+sys.path.append('/var/www/html/bapbot/env/lib/python3.6/site-packages')
 from flask import Flask, request
 
 # Project
