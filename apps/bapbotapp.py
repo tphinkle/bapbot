@@ -44,7 +44,7 @@ def home():
 def bap():
     if request.method == POST:
 
-        data = request.get_json()
+        data = json.loads(request.get_json())
         #data = request.args
 
         print('JSON', request.get_json())
