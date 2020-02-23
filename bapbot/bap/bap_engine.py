@@ -1,13 +1,15 @@
 ## Imports
 
 # Project
-from .bap import Bap
 from .. import database as db
 
 
 class BapEngine(object):
 
+
     def __init__(self):
+        """
+        """
         self._sql_handle = db.database.SQLHandle.get_create()
 
 

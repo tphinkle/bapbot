@@ -53,7 +53,7 @@ class LevelsSchema(object):
 
     columns = OrderedDict()
     columns[LEVEL] = {'type': UNSIGNED_INTEGER_TYPE}
-    columns[EXP_NEEEDED] = {'type': UNSIGNED_INTEGER_TYPE}
+    columns[EXP_NEEDED] = {'type': UNSIGNED_INTEGER_TYPE}
     columns[DAILY_BAPS] = {'type': UNSIGNED_INTEGER_TYPE}
     columns[DAILY_BAPS_POWER] = {'type': UNSIGNED_INTEGER_TYPE}
     columns[DAILY_BAPS_SUPER] = {'type': UNSIGNED_INTEGER_TYPE}
