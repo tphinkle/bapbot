@@ -20,7 +20,7 @@ class HTTPHandler(object):
         """
         # Bapper
         data = REST.bap.POST.assemble(bapper, bappee, bap_type, timestamp)
-        requests.post(SERVER_URL, data=data)
+        requests.post('http://127.0.0.1', data=data)
 
     @staticmethod
     def receive_bap_event(self):
