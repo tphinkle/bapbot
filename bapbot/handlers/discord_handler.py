@@ -17,7 +17,7 @@ class DiscordHandler(object):
 
     BAPBOT_NAME = 'bapbot'
     BAPBOT_FULL_NAME = 'bapbot#8352'
-    BAP_INICATOR = '#'
+    BAP_INDICATOR = '#'
 
     def __init__(self):
         """
@@ -28,12 +28,12 @@ class DiscordHandler(object):
     def _extract_bap_type(self, message):
         """
         """
-        pattern = '(?=\{})(.*?)(?= )'.format(BAP_INDICATOR)
+        pattern = '(?=\{})(.*?)(?= )'.format(DiscordHandler.BAP_INDICATOR)
         matches = re.search(pattern, message.content)
         if len(matches) == 0:
             bap_type = None
         else:
-            bap_type = matches[0].replace(BAP_INDICATOR, '')
+            bap_type = matches[0].replace(DiscordHandler.BAP_INDICATOR, '')
         return bap_type
 
     def _is_bap_message(self, message):
