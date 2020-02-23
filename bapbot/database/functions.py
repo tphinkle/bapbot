@@ -60,6 +60,8 @@ def register_new_player(sql_handle, name, join_date, level, experience):
                 schema.PlayersSchema.LEVEL,
                 schema.PlayersSchema.EXPERIENCE)
 
+    raise ValueError(query)
+
 
 def get_player(sql_handle, player_name):
     """
@@ -68,7 +70,6 @@ def get_player(sql_handle, player_name):
         .format(schema.PlayersSchema.TABLE_NAME,
                 schema.PlayersSchema.NAME)
     player = sql_handle.execute(query, player_name=player_name)
-    raise ValueError("PLAYER!!!!", player)
     return player
 
 
