@@ -8,10 +8,7 @@ import json
 import os
 import requests
 
-curr_path = os.path.abspath(__file__)
-discord_config_file_path = os.path.join(curr_path.split('bapbot')[0], 'bapbot', 'tmp', 'discord.json')
-with open(discord_config_file_path, 'r') as file_handle:
-    DISCORD_CONFIG = json.load(file_handle)
+
 
 CHANNEL_ID = DISCORD_CONFIG['channels']['bapbottest']['id']
 TEXT_CHANNEL_ID = DISCORD_CONFIG['channels']['bapbottest']['text_channels']['general']['id']
@@ -29,8 +26,3 @@ message = "hello world"
 post_json = json.dumps({"content":message})
 
 r = requests.post(BASE_URL, headers = HEADERS, data = post_json)
-
-
-print(r)
-print(dir(r))
-print(r.text)

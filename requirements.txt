@@ -1,5 +1,6 @@
 bokeh
 discord
+flask
 numpy
 pandas
 psycopg2==2.8.4

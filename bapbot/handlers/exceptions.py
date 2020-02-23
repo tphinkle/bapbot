@@ -1,0 +1,4 @@
+class BapParseError(Exception):
+    """
+    """
+    pass

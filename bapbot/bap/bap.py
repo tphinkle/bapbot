@@ -16,6 +16,7 @@ class Bap(object):
     def __init__(self, timestamp, bapper, bappee, type):
         """
         """
+
         self.timestamp = timestamp
         self.bapper = bapper
         self.bappee = bappee

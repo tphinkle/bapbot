@@ -13,23 +13,27 @@ import requests
 import discord
 
 # Package
-import utils
+from . import utils
+from .handlers.discord_handler import DiscordHandler
 
-client = discord.Client()
 
-DISCORD_CONFIG = utils.load_discord_config()
+if __name__ == '__main__':
+    client = discord.Client()
 
-@client.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    DISCORD_CONFIG = utils.load_discord_config()
+    handler = DiscordHandler()
 
-@client.event
-async def on_message(message):
-    print('asdf')
-    if message.author == client.user:
-        return
+    @client.event
+    async def on_ready():
+        print('We have logged in as {0.user}'.format(client))
 
-    if '!bap' in message.content:
-        await message.channel.send('bap!!!')
+    @client.event
+    async def on_message(message):
+        if message.author == client.user:
+            return
 
-client.run(DISCORD_CONFIG['bapbot']['token'])
+        if '!bap' in message.content:
+            response = handler.handle_bap_event(message)
+            await message.channel.send(response)
+
+    client.run(DISCORD_CONFIG['bapbot']['token'])
