@@ -27,7 +27,7 @@ class DiscordHandler(object):
         # Bapper
         bapper = message.author.name
 
-        print(dir(message))
+        print(message.contents)
 
         # Bappee
         mentions = message.mentions
