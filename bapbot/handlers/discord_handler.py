@@ -1,7 +1,7 @@
 ## Imports
 
 # Python standard library
-import regex as re
+import regex as sre
 
 # Project
 from .. import utils
@@ -36,7 +36,8 @@ class DiscordHandler(object):
                 bappee = mention.name
 
         # Type
-        bap_type = re.search('(?=\!)(.*?)(?= )')[0].replace('!', '')
+        pattern = '(?=\!)(.*?)(?= )'
+        bap_type = re.search(message)[0].replace('!', '')
 
         return bapper, bappee, bap_type
 
