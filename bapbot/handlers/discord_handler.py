@@ -55,3 +55,5 @@ class DiscordHandler(BaseHandler):
         bap = Bap(timestamp, bapper, bappee, type)
 
         bap_response = self.execute_bap(bap)
+
+        return "{} just {}'d {}!!".format(bapper, bappee, type)
