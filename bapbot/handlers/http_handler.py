@@ -17,7 +17,7 @@ class HTTPHandler(BaseHandler):
     def __init__(self):
         """
         """
-        pass
+        super(DiscordHandler, self).__init__()
 
 
     def handle_bap_event(self, request_args):

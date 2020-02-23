@@ -20,7 +20,9 @@ class DiscordHandler(BaseHandler):
     def __init__(self):
         """
         """
-        pass
+        super(DiscordHandler, self).__init__()
+
+
 
     def _parse_bap_message(self, message):
         # Bapper
