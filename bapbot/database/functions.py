@@ -32,7 +32,7 @@ def log_bap(sql_handle, bap):
         command, timestamp = bap.timestamp, bapper = bap.bapper, bappee = bap.bappee, baptype = bap.type)
 
 
-def get_num_baps_on_date(sql_handle, bapper, bap_type, date_dt):
+def get_bapper_num_baps_on_date(sql_handle, bapper, bap_type, date_dt):
     """
     """
     query = "select count(*) from {} where {} = %(bapper)s and {}::date = %(date_dt)s and {} = %(bap_type)s" \
