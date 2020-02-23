@@ -29,9 +29,9 @@ bap_engine = BapEngine()
 def _get_request_arg(request, key, error=True):
     """
     """
-    arg = request.args.get(key)
-    if arg is None:
-        raise ValueError('Required arg is missing ({}), {}'.format(arg, request.args))
+    val = request.args.get(key)
+    if val is None:
+        raise ValueError('Required arg is missing ({}), {}'.format(key, request.args))
     return arg
 
 @app.route('/')
