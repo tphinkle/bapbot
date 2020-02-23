@@ -29,6 +29,7 @@ bap_engine = BapEngine()
 def _get_request_arg(data, key, error=True):
     """
     """
+    raise ValueError(type(data))
     arg = data.get(key)
     if arg is None and error:
         raise ValueError('Required arg is missing from data ({}), {}'.format(key, data))
@@ -44,7 +45,9 @@ def home():
 def bap():
     if request.method == POST:
 
-        data = request.get_json() or request.args
+        data = request.get_json()
+
+        print(type(data))
         #data = request.args
 
         print('JSON', request.get_json())
