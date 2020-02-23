@@ -45,8 +45,8 @@ def get_baps(sql_handle, bapper=None, bappee = None, bap_type=None, date_dt=None
     if bap_type is not None:
         kwargs['bap_type'] = bap_type
         conds.append('{} = %(bap_type)s'.format(schema.BapTransSchema.BAPTYPE))
-    if date is not None:
-        kwargs['date'] = date
+    if date_dt is not None:
+        kwargs['date_dt'] = date_dt
         conds.append('{}::date = %(date_dt)s'.format(schema.BapTransSchema.TIMESTAMP))
 
     if len(conds) > 0:
