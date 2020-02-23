@@ -25,7 +25,33 @@ class DiscordHandler(object):
         self._http_handler = HTTPHandler()
 
 
+    def _extract_bap_type(self, message):
+        """
+        """
+        pattern = '(?=\{})(.*?)(?= )'.format(BAP_INDICATOR)
+        matches = re.search(pattern, message.content)
+        if len(matches) == 0:
+            bap_type = None
+        else:
+            bap_type = matches[0].replace(BAP_INDICATOR, '')
+        return bap_type
+
+    def _is_bap_message(self, message):
+        """
+        """
+        return self._extract_bap_type(message) is not None
+
+
+    def receive_message(self, message):
+        """
+        """
+        if self._is_bap_message(message):
+            self.process_bap_message(message)
+
+
     def _parse_bap_message(self, message):
+        """
+        """
         # Bapper
         bapper = message.author.name
 
@@ -40,9 +66,7 @@ class DiscordHandler(object):
                 bappee = mention.name
 
         # Type
-        pattern = '(?=\{})(.*?)(?= )'.format(BAP_INDICATOR)
-        print(pattern)
-        bap_type = re.search(pattern, message.content)[0].replace(BAP_INDICATOR, '')
+        bap_type = self._extract_bap_type(message)
 
         return bapper, bappee, bap_type
 
