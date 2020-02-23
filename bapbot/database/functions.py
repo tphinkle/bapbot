@@ -55,7 +55,6 @@ def get_player_level(sql_handle, bapper):
                 schema.PlayersSchema.NAME)
 
 
-
 def _create_levels(sql_handle):
     """
     """

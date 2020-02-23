@@ -3,7 +3,7 @@ import bapbot.utils as utils
 import os
 import requests
 
-URL = utils.load_server_config['url']
+URL = utils.load_server_config()['url']
 
 
 
