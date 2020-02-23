@@ -18,8 +18,10 @@ class BapEngine(object):
         """
         player = db.functions.get_player(self._sql_handle, player_name)
         if player is None:
-            db.functions.register_new_player(self._sql_handle, player_name)
-
+            join_date = utils.get_timestamp()
+            level = 0
+            experience = 0
+            db.functions.register_new_player(self._sql_handle, player_name, join_date, level, experience)
 
     def _bap_allowed(self, bapper, bap_type, timestamp):
         """

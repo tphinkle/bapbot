@@ -50,6 +50,17 @@ def _create_players(sql_handle):
     return _create_table_from_schema_object(sql_handle, schema.PlayersSchema)
 
 
+def register_new_player(sql_handle, name, join_date, level, experience):
+    """
+    """
+    query = "INSERT INTO {} ({}, {}, {}, {}) VALUES (%(name)s, %(join_date)s, %(level)s, %(experience)s)" \
+        .format(Schema.PlayersSchema.TABLE_NAME,
+                Schema.PlayersSchema.NAME,
+                Schema.PlayersSchema.JOIN_DATE,
+                Schema.PlayersSchema.LEVEL,
+                Schema.PlayersSchema.EXPERIENCE)
+
+
 def get_player(sql_handle, player_name):
     """
     """
