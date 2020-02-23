@@ -5,7 +5,6 @@ from .. import utils
 from . import schema
 
 ## Globals
-
 def _create_table_from_schema_object(sql_handle, schema_object):
     """
     """
@@ -68,9 +67,12 @@ def get_player(sql_handle, player_name):
     query = "select * from {} where {} = %(player_name)s" \
         .format(schema.PlayersSchema.TABLE_NAME,
                 schema.PlayersSchema.NAME)
-    player = sql_handle.execute(query, player_name=player_name)
-    raise ValueError(player)
-    return player
+    players = sql_handle.execute(query, player_name=player_name)
+    player_name = player[0][0]
+    join_date = player[0][1]
+    level = player[0][2]
+    experience = player[0][3]
+    player_name, join_date, level, experience
 
 
 
@@ -81,7 +83,7 @@ def get_player_level(sql_handle, player_name):
         .format(schema.PlayersSchema.LEVEL,
                 schema.PlayersSchema.TABLE_NAME,
                 schema.PlayersSchema.NAME)
-    return sql_handle.execute(query, player_name = player_name)
+    return sql_handle.execute(query, player_name = player_name)[2]
 
 
 def get_max_baps_allowed(sql_handle, player):
