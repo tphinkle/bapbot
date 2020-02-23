@@ -54,9 +54,10 @@ def get_baps(sql_handle, bapper=None, bappee = None, bap_type=None, date_dt=None
         query = "select * from {} where {}".format(schema.BapTransSchema.TABLE_NAME, formatted_conds)
     else:
         query = "select * from {}".format(schema.BapTransSchema.TABLE_NAME)
-    print('query!!!', query)
+
 
     baps = sql_handle.execute(query, **kwargs)
+    raise ValueError(baps)
     return baps
 
 def get_bapper_num_baps_on_date(sql_handle, bapper, bap_type, date_dt):
