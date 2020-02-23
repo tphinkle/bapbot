@@ -4,7 +4,7 @@
 from .. import database as db
 from .. import utils
 from .bap import Bap
-from .level imporot Level
+from .level import Level
 from .player import Player
 
 
