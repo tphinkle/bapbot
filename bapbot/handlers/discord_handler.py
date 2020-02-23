@@ -84,3 +84,5 @@ class DiscordHandler(object):
 
         print('trying to bap!', bapper, bappee, bap_type, timestamp)
         bap_response = self._http_handler.POST_bap(bapper, bappee, bap_type, timestamp)
+
+        return bap_response
