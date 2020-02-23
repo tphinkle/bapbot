@@ -36,7 +36,7 @@ def home():
 def bap():
     print('asdf')
     if request.method == POST:
-        bap_handler.handle_bap_post(request.args)
+        bap_handler.handle_post(request.args)
     return 'ok'
 
 if __name__ == '__main__':
