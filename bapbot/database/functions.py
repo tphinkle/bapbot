@@ -7,7 +7,7 @@ def log_bap(sql_handle, bap):
     command = "insert into bap_trans(timestamp, bapper, bappee, baptype) " \
               "VALUES(%(timestamp)s, %(bapper)s, %(bappee)s, %(baptype)s)"
     return sql_handle.execute(
-        command, bap.timestamp, bap.bapper, bap.bappee, bap.type)
+        command, timestamp = bap.timestamp, bapper = bap.bapper, bappee = bap.bappee, baptype = bap.type)
 
 
 def create_bap_trans(sql_handle):
