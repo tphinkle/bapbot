@@ -46,7 +46,7 @@ def bap():
     return 'ok'
 
 @app.route('/player', methods=[GET])
-def bap():
+def player():
     if request.method == GET:
         player_name = request.args.get(REST.player.GET.PLAYER_NAME)
         bap_engine.get_player(request.args)
