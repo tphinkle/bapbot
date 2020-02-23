@@ -5,7 +5,7 @@ class POST(object):
 
 
     BAPPER_KEY = 'bapper'
-    BAPPEE_KEY = 'bapee'
+    BAPPEE_KEY = 'bappee'
     BAP_TYPE_KEY = 'bap_type'
     TIMESTAMP_KEY = 'timestamp'
 
