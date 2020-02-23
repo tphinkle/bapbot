@@ -10,7 +10,7 @@ UNSIGNED_INTEGER_TYPE = 'UNSIGNED_INTEGER'
 
 class BapTransSchema(object):
 
-    TABLE_NAME = 'baptrans'
+    TABLE_NAME = 'bap_trans'
 
     TIMESTAMP = 'timestamp'
     BAPPER = 'bapper'
