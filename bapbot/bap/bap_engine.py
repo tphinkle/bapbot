@@ -35,8 +35,8 @@ class BapEngine(object):
     def attempt_bap(self, bapper, bappee, bap_type, timestamp):
         """
         """
-        if self.bap_allowed(bapper, bap_type, timestamp):
-            self.execute_bap(bapper, bappee, bap_type, timestamp)
+        if self._bap_allowed(bapper, bap_type, timestamp):
+            self._execute_bap(bapper, bappee, bap_type, timestamp)
 
     def get_player(self, bapper, bappee, bap_type, timestamp):
         """
