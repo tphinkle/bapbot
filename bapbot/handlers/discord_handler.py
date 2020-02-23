@@ -34,7 +34,7 @@ class DiscordHandler(BaseHandler):
             raise BapParseError
         for mention in mentions:
             if DiscordHandler.BAPBOT_NAME not in mention.name:
-                bappee = mention
+                bappee = mention.name
 
         # Type
         for bap_type in Bap.BAP_TYPES:
