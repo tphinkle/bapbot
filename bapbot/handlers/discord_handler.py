@@ -1,7 +1,7 @@
 ## Imports
 
 # Python standard library
-import regex as sre
+import regex as re
 
 # Project
 from .. import utils
