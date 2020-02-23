@@ -13,7 +13,7 @@ class BaseHandler(object):
     def __init__(self):
         """
         """
-        self.__sql_handler = db.database.SQLHandle.get_create()
+        self.__sql_handle = db.database.SQLHandle.get_create()
 
     def execute_bap(self, bap):
         """
