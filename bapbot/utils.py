@@ -22,7 +22,7 @@ def timestamp_str_to_timestamp(timestamp_str):
     """
     """
 
-    timestamp = datetime.datetime.strptime(timestamp_str, '%Y-%m-%dT H:%M:%S.%f')
+    timestamp = datetime.datetime.strptime(timestamp_str, '%Y-%m-%dT %H:%M:%S.%f')
     print('timestamp_str', timestamp_str)
     print('timestamp', timestamp)
 
