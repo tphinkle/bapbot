@@ -2,6 +2,7 @@
 
 # Project
 from .. import database as db
+from .. import utils
 
 
 class BapEngine(object):
