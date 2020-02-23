@@ -1,7 +1,6 @@
 ## Imports
 
 # Project
-from ..bap import Bap
 #from .. import database as db
 
 from .. import utils
