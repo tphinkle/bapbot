@@ -13,7 +13,6 @@ class BapEngine(object):
         """
         self._sql_handle = db.database.SQLHandle.get_create()
 
-
     def _bap_allowed(self, bapper, bap_type, timestamp):
         """
         """
@@ -32,7 +31,6 @@ class BapEngine(object):
         """
         """
         db.functions.log_bap(bapper, bappee, bap_type, timestamp)
-
 
     def attempt_bap(self, bapper, bappee, bap_type, timestamp):
         """

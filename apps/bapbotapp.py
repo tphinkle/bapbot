@@ -14,7 +14,7 @@ from flask import Flask, request
 
 # Project
 from bapbot.bap import BapEngine
-from bapbot import REST
+from bapbot import REST, utils
 
 ## Globals
 GET = 'GET'
