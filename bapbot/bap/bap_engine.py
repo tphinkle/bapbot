@@ -19,18 +19,20 @@ class BapEngine(object):
         player = db.functions.get_player(self._sql_handle, player_name)
         if player is None:
             join_date = utils.get_timestamp()
-            level = 0
-            experience = 0
-            db.functions.register_new_player(self._sql_handle, player_name, join_date, level, experience)
+            new_player = player.get_new_player(player_name, join_date)
+            db.functions.register_new_player(self._sql_handle, new_player)
 
     def _bap_allowed(self, bapper, bap_type, timestamp):
         """
         """
         # Check player can perform bap
         date = timestamp.date()
-        baps_today = db.functions.get_num_baps_on_date(
+        baps_today = db.functions.get_player_num_baps_on_date(
             self._sql_handle, bapper, bap_type, date)
-        max_baps = db.functions.get_max_baps_allowed(self._sql_handle, bapper, bap_type)
+        player = db.functions.get_player(self._sql_handle, bapper))
+        level = db.functions.get_level(self._sql_handle, player.level)
+
+
 
         if baps_today >= max_baps:
             return False
@@ -52,6 +54,8 @@ class BapEngine(object):
 
         self._check_register_player(bapper)
         self._check_register_player(bappee)
+
+
 
 
         if self._bap_allowed(bapper, bap_type, timestamp):

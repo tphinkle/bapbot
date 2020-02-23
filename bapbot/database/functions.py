@@ -75,7 +75,7 @@ def get_player(sql_handle, player_name):
 
     if players is None:
         return []
-        
+
     player_name = players[0][0]
     join_date = players[0][1]
     level = players[0][2]
@@ -83,25 +83,16 @@ def get_player(sql_handle, player_name):
     return (player_name, join_date, level, experience)
 
 
-
-def get_player_level(sql_handle, player_name):
-    """
-    """
-    query = "select {} from {} where {} = %(player_name)s" \
-        .format(schema.PlayersSchema.LEVEL,
-                schema.PlayersSchema.TABLE_NAME,
-                schema.PlayersSchema.NAME)
-    return sql_handle.execute(query, player_name = player_name)[2]
-
-
-def get_max_baps_allowed(sql_handle, player):
-    """
-    """
-    pass
-
-
-
 def _create_levels(sql_handle):
     """
     """
     return _create_table_from_schema_object(sql_handle, schema.LevelsSchema)
+
+
+def get_level(sql_handle, level):
+    """
+    """
+    query = "select * from {} where {} = %(level)s" \
+        .format(schema.LevelsSchema.TABLE_NAME,
+                schema.LevelsSchema.LEVEL)
+    level = sql_handle.execute(query, level=level)
