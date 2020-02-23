@@ -44,10 +44,10 @@ def home():
 def bap():
     if request.method == POST:
 
-        bapper = _get_request_arg(REST.bap.POST.BAPPER_KEY)
-        bappee = _get_request_arg(REST.bap.POST.BAPPEE_KEY)
-        bap_type = _get_request_arg(REST.bap.POST.BAP_TYPE_KEY)
-        timestamp = _get_request_arg(REST.bap.POST.TIMESTAMP_KEY)
+        bapper = _get_request_arg(request, REST.bap.POST.BAPPER_KEY)
+        bappee = _get_request_arg(request, REST.bap.POST.BAPPEE_KEY)
+        bap_type = _get_request_arg(request, REST.bap.POST.BAP_TYPE_KEY)
+        timestamp = _get_request_arg(request, REST.bap.POST.TIMESTAMP_KEY)
 
         bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp)
 
