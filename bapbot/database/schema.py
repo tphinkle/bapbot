@@ -6,7 +6,7 @@ from collections import OrderedDict
 
 TEXT_TYPE = 'TEXT'
 TIMESTAMPTZ_TYPE = 'TIMESTAMPTZ'
-UNSIGNED_INTEGER_TYPE = 'UNSIGNED_INTEGER'
+UNSIGNED_INTEGER_TYPE = 'BIGINT'
 
 class BapTransSchema(object):
 

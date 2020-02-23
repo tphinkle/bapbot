@@ -12,9 +12,10 @@ def _create_table_from_schema_object(sql_handle, schema_object):
     cols = []
     for col_name, col in schema_object.columns.items():
         cols.append(' '.join([col_name, col['type']]))
-    formatted_cols = ','.join(cols)
+    formatted_cols = ', '.join(cols)
 
     CREATE_TABLE_CMD = 'CREATE TABLE IF NOT EXISTS {} ({})'.format(schema_object.TABLE_NAME, formatted_cols)
+    print(CREATE_TABLE_CMD)
     return sql_handle.execute(CREATE_TABLE_CMD)
 
 
