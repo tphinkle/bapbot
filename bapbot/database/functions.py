@@ -49,13 +49,32 @@ def _create_players(sql_handle):
     return _create_table_from_schema_object(sql_handle, schema.PlayersSchema)
 
 
-def get_player_level(sql_handle, bapper):
+def get_player(sql_handle, player_name):
     """
     """
-    queery = "select {} from {} where {} = %(bapper)s" \
+    query = "select * from {} where {} = %(player_name)s" \
+        .format(schema.PlayersSchema.TABLE_NAME,
+                schema.PlayersSchema.NAME)
+    player = sql_handle.execute(query, player_name=player_name)
+    print("PLAYER!!!!", player)
+    return player
+
+
+
+def get_player_level(sql_handle, player_name):
+    """
+    """
+    query = "select {} from {} where {} = %(player_name)s" \
         .format(schema.PlayersSchema.LEVEL,
                 schema.PlayersSchema.TABLE_NAME,
                 schema.PlayersSchema.NAME)
+    return sql_handle.execute(query, player_name = player_name)
+
+
+def get_max_baps_allowed(sql_handle, player):
+    """
+    """
+
 
 
 def _create_levels(sql_handle):
