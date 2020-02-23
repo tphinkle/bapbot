@@ -59,8 +59,8 @@ def register_new_player(sql_handle, name, join_date, level, experience):
                 schema.PlayersSchema.JOIN_DATE,
                 schema.PlayersSchema.LEVEL,
                 schema.PlayersSchema.EXPERIENCE)
-
-    raise ValueError(query)
+    result = sql_handle.execute(query, name=name, join_date=join_date, level=level, experience=experience)
+    raise ValueError(result)
 
 
 def get_player(sql_handle, player_name):
