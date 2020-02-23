@@ -28,9 +28,12 @@ class DiscordHandler(object):
     def _extract_bap_type(self, message):
         """
         """
+
         pattern = '(?=\{})(.*?)(?= )'.format(DiscordHandler.BAP_INDICATOR)
         matches = re.search(pattern, message.content)
-        if len(matches) == 0:
+        print(pattern, message, matches)
+
+        if matches is None:
             bap_type = None
         else:
             bap_type = matches[0].replace(DiscordHandler.BAP_INDICATOR, '')
