@@ -14,6 +14,7 @@ from flask import Flask, request
 
 # Project
 from bapbot.bap import BapEngine
+from bapbot import REST
 
 ## Globals
 GET = 'GET'
@@ -31,10 +32,24 @@ def home():
     """
     return 'Testing'
 
-@app.route('/bap', methods=(GET, POST))
+@app.route('/bap', methods=(POST))
 def bap():
     if request.method == POST:
-        bap_engine.attempt_bap(request.args)
+
+        bapper = request.args.get(REST.bap.POST.BAPPER_KEY)
+        bappee = request.args.get(REST.bap.POST.BAPPEE_KEY)
+        bap_type = request.args.get(REST.bap.POST.BAP_TYPE_KEY)
+        timestamp = request.args.get(REST.bap.POST.TIMESTAMP_KEY)
+
+        bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp)
+
+    return 'ok'
+
+@app.route('/player', methods=(GET))
+def bap():
+    if request.method == GET:
+        player_name = request.args.get(REST.player.GET.PLAYER_NAME)
+        bap_engine.get_player(request.args)
     return 'ok'
 
 if __name__ == '__main__':
