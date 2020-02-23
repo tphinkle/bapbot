@@ -26,7 +26,7 @@ class DiscordHandler(BaseHandler):
 
     def _parse_bap_message(self, message):
         # Bapper
-        bapper = message.author
+        bapper = message.author.name
 
         # Bappee
         mentions = message.mentions
