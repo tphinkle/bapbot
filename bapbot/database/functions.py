@@ -31,6 +31,33 @@ def log_bap(sql_handle, bap):
     return sql_handle.execute(
         command, timestamp = bap.timestamp, bapper = bap.bapper, bappee = bap.bappee, baptype = bap.type)
 
+def get_baps(sql_handle, bapper=None, bappee = None, bap_type=None, date_dt=None):
+    """
+    """
+    kwargs = {}
+    conds = []
+    if bapper is not None:
+        kwargs['bapper'] = bapper
+        conds.append('{} = %(bapper)s'.format(Schema.BapTrans.BAPPER))
+    if bappee is not None:
+        kwargs['bappee'] = bappee
+        conds.append('{} = %(bappee)s'.format(Schema.BapTrans.BAPPEE))
+    if bap_type is not None:
+        kwargs['bap_type'] = bap_type
+        conds.append('{} = %(bap_type)s'.format(Schema.BapTrans.BAPTYPE))
+    if date is not None:
+        kwargs['date'] = date
+        conds.append('{}::date = %(date_dt)s'.format(Schema.BapTrans.TIMESTAMP))
+
+    if len(conds) > 0:
+        formatted_conds = ' AND '.join(conds)
+        query = "select * from {} where {}".format(Schema.BapTrans.TABLE_NAME, formatted_conds)
+    else:
+        query = "select * from {}".format(Schema.BapTrans.TABLE_NAME)
+    print('query!!!', query)
+
+    baps = sql_handle.execute(query, **kwargs)
+    return baps
 
 def get_bapper_num_baps_on_date(sql_handle, bapper, bap_type, date_dt):
     """
