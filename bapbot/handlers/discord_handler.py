@@ -20,7 +20,7 @@ class DiscordHandler(object):
     def __init__(self):
         """
         """
-        self._http_handler = HTTPHandler
+        self._http_handler = HTTPHandler()
 
 
     def _parse_bap_message(self, message):
@@ -53,4 +53,4 @@ class DiscordHandler(object):
         bapper, bappee, bap_type = self._parse_bap_message(message)
 
         print('trying to bap!', bapper, bappee, bap_type, timestamp)
-        bap_response = self.HTTPHandler.POST_bap(bapper, bappee, bap_type, timestamp)
+        bap_response = self._http_handler.POST_bap(bapper, bappee, bap_type, timestamp)
