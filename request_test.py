@@ -6,8 +6,6 @@ import requests
 URL = utils.load_server_config()['url']
 
 
-
-
 if __name__ == '__main__':
     data = {'bapper': 'jon',
             'bappee': 'jon',

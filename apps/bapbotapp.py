@@ -13,8 +13,7 @@ sys.path.append('/var/www/html/bapbot/env/lib/python3.6/site-packages')
 from flask import Flask, request
 
 # Project
-import bapbot.handlers as handlers
-
+from bapbot.bap import BapEngine
 
 ## Globals
 GET = 'GET'
@@ -24,7 +23,7 @@ POST = 'POST'
 app = Flask(__name__, instance_relative_config=True)
 
 # Set up the handlers
-bap_handler = handlers.BapHandler()
+bap_engine = BapEngine()
 
 @app.route('/')
 def home():
@@ -35,8 +34,7 @@ def home():
 @app.route('/bap', methods=(GET, POST))
 def bap():
     if request.method == POST:
-        print('received bap POST')
-        bap_handler.handle_post(request.args)
+        bap_engine.attempt_bap(request.args)
     return 'ok'
 
 if __name__ == '__main__':

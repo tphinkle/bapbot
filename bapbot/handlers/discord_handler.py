@@ -5,11 +5,11 @@ from ..bap import Bap
 #from .. import database as db
 
 from .. import utils
-from .base_handler import BaseHandler
+from .http_handler import HTTPHandler
 from .exceptions import BapParseError
 
 
-class DiscordHandler(BaseHandler):
+class DiscordHandler(object):
     """
     """
 
@@ -20,8 +20,7 @@ class DiscordHandler(BaseHandler):
     def __init__(self):
         """
         """
-        super(DiscordHandler, self).__init__()
-
+        self._http_handler = HTTPHandler
 
 
     def _parse_bap_message(self, message):
@@ -40,7 +39,6 @@ class DiscordHandler(BaseHandler):
         for bap_type in Bap.BAP_TYPES:
             if '!{}'.format(bap_type) in message.content:
                 break
-        print('bapper, bapeee, bap_type', type(bapper), type(bappee), type(bap_type))
         return bapper, bappee, bap_type
 
 
@@ -49,5 +47,6 @@ class DiscordHandler(BaseHandler):
         """
 
         # Execute the bap
+        timestamp = utils.get_timestamp()
         bapper, bappee, bap_type = self._parse_bap_message(message)
-        bap_response = self.handle_bap(bapper, bappee, bap_type)
+        bap_response = self.HTTPHandler.POST_bap(bapper, bappee, bap_type, timestamp)
