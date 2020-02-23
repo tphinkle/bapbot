@@ -31,13 +31,13 @@ class PlayersSchema(object):
     NAME = 'name'
     JOIN_DATE = 'join_date'
     LEVEL = 'level'
-    EXP = 'experience'
+    EXPERIENCE = 'experience'
 
     columns = OrderedDict()
     columns[NAME] = {'type': TEXT_TYPE}
     columns[JOIN_DATE] = {'type': TIMESTAMPTZ_TYPE}
     columns[LEVEL] = {'type': UNSIGNED_INTEGER_TYPE}
-    columns[EXP] = {'type': UNSIGNED_INTEGER_TYPE}
+    columns[EXPERIENCE] = {'type': UNSIGNED_INTEGER_TYPE}
 
 
 class LevelsSchema(object):
