@@ -34,8 +34,8 @@ def home():
 
 @app.route('/bap', methods=(GET, POST))
 def bap():
-    print('asdf')
     if request.method == POST:
+        print('received bap POST')
         bap_handler.handle_post(request.args)
     return 'ok'
 

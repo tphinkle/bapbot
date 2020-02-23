@@ -44,16 +44,10 @@ class DiscordHandler(BaseHandler):
         return bapper, bappee, bap_type
 
 
-    def handle_bap_event(self, message):
+    def receive_bap_event(self, message):
         """
         """
 
-        # Construct bap
-        bapper, bappee, type = self._parse_bap_message(message)
-        timestamp = utils.get_timestamp()
-
-        bap = Bap(timestamp, bapper, bappee, type)
-
-        bap_response = self.execute_bap(bap)
-
-        return "{} just {}'d {}!!".format(bapper, bappee, type)
+        # Execute the bap
+        bapper, bappee, bap_type = self._parse_bap_message(message)
+        bap_response = self.handle_bap(bapper, bappee, bap_type)

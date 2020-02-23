@@ -1,7 +1,10 @@
 ## Imports
 
+# Python standard library
+import requests
+
 # Project
-from .. import bap
+from ..bap import bap, bap_engine, bap_response, player
 from .. import database as db
 from .. import utils
 
@@ -13,16 +16,20 @@ class BaseHandler(object):
     def __init__(self):
         """
         """
-        self._sql_handle = db.database.SQLHandle.get_create()
+        pass
 
-    def execute_bap(self, bap):
+    def handle_bap(self, bapper, bappee, bap_type, timestamp = None):
         """
         """
-        # Log bap
-        bap_response = db.functions.log_bap(self._sql_handle, bap)
-        return bap_response
+        # Bapper
+        if timestamp is None:
+            utils.get_timestamp()
 
-    def handle_bap_event(self):
+        attempted_bap = bap.Bap(bapper, bappee, bap_type, time_stamp)
+        bap_response = bap_engine.execute_bap(attempted_bap)
+
+
+    def receive_bap_event(self):
         """
         """
         raise NotImplementedError()
