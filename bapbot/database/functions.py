@@ -54,11 +54,11 @@ def register_new_player(sql_handle, name, join_date, level, experience):
     """
     """
     query = "INSERT INTO {} ({}, {}, {}, {}) VALUES (%(name)s, %(join_date)s, %(level)s, %(experience)s)" \
-        .format(Schema.PlayersSchema.TABLE_NAME,
-                Schema.PlayersSchema.NAME,
-                Schema.PlayersSchema.JOIN_DATE,
-                Schema.PlayersSchema.LEVEL,
-                Schema.PlayersSchema.EXPERIENCE)
+        .format(schema.PlayersSchema.TABLE_NAME,
+                schema.PlayersSchema.NAME,
+                schema.PlayersSchema.JOIN_DATE,
+                schema.PlayersSchema.LEVEL,
+                schema.PlayersSchema.EXPERIENCE)
 
 
 def get_player(sql_handle, player_name):
@@ -68,7 +68,7 @@ def get_player(sql_handle, player_name):
         .format(schema.PlayersSchema.TABLE_NAME,
                 schema.PlayersSchema.NAME)
     player = sql_handle.execute(query, player_name=player_name)
-    print("PLAYER!!!!", player)
+    raise ValueError("PLAYER!!!!", player)
     return player
 
 
