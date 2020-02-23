@@ -32,11 +32,15 @@ def log_bap(sql_handle, bap):
         command, timestamp = bap.timestamp, bapper = bap.bapper, bappee = bap.bappee, baptype = bap.type)
 
 
-def get_num_baps_on_date(sql_handle, date_dt):
+def get_num_baps_on_date(sql_handle, bapper, bap_type, date_dt):
     """
     """
-    query = "select * from {} where bapper = %(bapper)s and now()::date = %(date_dt)s".format(BAP_TRANS)
-    return sql_handle.execute(query, bapper=bapper, date=date_dt)
+    query = "select count(*) from {} where {} = %(bapper)s and {}::date = %(date_dt)s and {} = %(bap_type)s" \
+        .format(schema.BapTransSchema.TABLE_NAME,
+                schema.BapTransSchema.BAPPER,
+                schema.BapTransSchema.TIMESTAMP,
+                schema.BapTransSchema.BAPTYPE)
+    return sql_handle.execute(query, bapper=bapper, date_dt=date_dt, bap_type=bap_type)
 
 
 def _create_players(sql_handle):
