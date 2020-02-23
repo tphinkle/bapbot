@@ -28,7 +28,7 @@ class BapEngine(object):
         # Check player can perform bap
         date = timestamp.date()
         baps_today = db.functions.get_baps(
-            self._sql_handle, bapper=bapper, bap_type=bap_type, date=utils.get_today_date())
+            self._sql_handle, bapper=player_name, bap_type=bap_type, date=utils.get_today_date())
         player = db.functions.get_player(self._sql_handle, player_name)
         level = db.functions.get_level(self._sql_handle, player.level)
 
