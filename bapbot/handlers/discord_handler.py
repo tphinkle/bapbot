@@ -40,7 +40,7 @@ class DiscordHandler(BaseHandler):
         for bap_type in Bap.BAP_TYPES:
             if '!{}'.format(bap_type) in message.content:
                 break
-
+        print('bapper, bapeee, bap_type', type(bapper), type(bappee), type(bap_type))
         return bapper, bappee, bap_type
 
 
