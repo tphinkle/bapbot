@@ -5,8 +5,6 @@ import datetime
 import logging
 import sys
 
-
-
 # Postgres and SQL
 from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database

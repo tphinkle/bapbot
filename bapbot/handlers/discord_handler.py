@@ -14,6 +14,7 @@ class DiscordHandler(BaseHandler):
     """
 
     BAPBOT_NAME = 'bapbot'
+    BAPBOT_FULL_NAME = 'bapbot#8352'
     BAP_INICATOR = '!'
 
     def __init__(self):
@@ -30,12 +31,12 @@ class DiscordHandler(BaseHandler):
         if len(mentions) > 2:
             raise BapParseError
         for mention in mentions:
-            if mention['name'] != DiscordHandler.BAPBOT_NAME:
-                bappeee = mention['name']
+            if DiscordHandler.BAPBOT_NAME not in mention.name:
+                bappee = mention
 
         # Type
         for bap_type in Bap.BAP_TYPES:
-            if '!{}'.format(bap_type) in message:
+            if '!{}'.format(bap_type) in message.content:
                 break
 
         return bapper, bappee, bap_type

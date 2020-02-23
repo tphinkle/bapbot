@@ -10,6 +10,7 @@ import json
 import os
 import requests
 
+# Discord
 import discord
 
 # Package
