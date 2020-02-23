@@ -20,7 +20,7 @@ class BapEngine(object):
         date = timestamp.date()
         baps_today = db.functions.get_num_baps_on_date(
             self._sql_handle, bapper, bap_type, date)
-        max_baps = db.functions.get_max_baps_allowed(self._ssql_handle, bapper, bap_type)
+        max_baps = db.functions.get_max_baps_allowed(self._sql_handle, bapper, bap_type)
 
         if baps_today >= max_baps:
             return False
