@@ -27,7 +27,7 @@ class DiscordHandler(BaseHandler):
 
         # Bappee
         mentions = message.mentions
-        if len(mentions > 2):
+        if len(mentions) > 2:
             raise BapParseError
         for mention in mentions:
             if mention['name'] != DiscordHandler.BAPBOT_NAME:
