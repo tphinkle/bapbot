@@ -1,8 +1,9 @@
 ## Imports
 
-# Project
-#from .. import database as db
+# Python standard library
+import regex as sre
 
+# Project
 from .. import utils
 from .http_handler import HTTPHandler
 from .exceptions import BapParseError
@@ -35,9 +36,8 @@ class DiscordHandler(object):
                 bappee = mention.name
 
         # Type
-        for bap_type in Bap.BAP_TYPES:
-            if '!{}'.format(bap_type) in message.content:
-                break
+        bap_type = re.search('(?=\!)(.*?)(?= )')[0].replace('!', '')
+
         return bapper, bappee, bap_type
 
 
@@ -48,4 +48,6 @@ class DiscordHandler(object):
         # Execute the bap
         timestamp = utils.get_timestamp()
         bapper, bappee, bap_type = self._parse_bap_message(message)
+
+        print('trying to bap!', bapper, bappee, bap_type, timestamp)
         bap_response = self.HTTPHandler.POST_bap(bapper, bappee, bap_type, timestamp)

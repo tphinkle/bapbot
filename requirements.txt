@@ -4,6 +4,7 @@ flask
 numpy
 pandas
 psycopg2==2.8.4
+regex
 requests
 six==1.14.0
 sqlalchemy==1.3.13
