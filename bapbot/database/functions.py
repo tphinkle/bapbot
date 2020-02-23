@@ -57,7 +57,7 @@ def get_baps(sql_handle, bapper=None, bappee = None, bap_type=None, date_dt=None
 
 
     baps = sql_handle.execute(query, **kwargs)
-    raise ValueError(baps)
+    raise ValueError(query, kwargs)
     return baps
 
 def get_bapper_num_baps_on_date(sql_handle, bapper, bap_type, date_dt):
