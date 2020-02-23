@@ -22,19 +22,17 @@ class BapEngine(object):
             new_player = player.get_new_player(player_name, join_date)
             db.functions.register_new_player(self._sql_handle, new_player)
 
-    def _bap_allowed(self, bapper, bap_type, timestamp):
+    def _bap_allowed(self, player_name, bap_type, timestamp):
         """
         """
         # Check player can perform bap
         date = timestamp.date()
         baps_today = db.functions.get_player_num_baps_on_date(
             self._sql_handle, bapper, bap_type, date)
-        player = db.functions.get_player(self._sql_handle, bapper))
+        player = db.functions.get_player(self._sql_handle, player_name)
         level = db.functions.get_level(self._sql_handle, player.level)
 
-
-
-        if baps_today >= max_baps:
+        if baps_today >= level.get_daily_bap_limit(bap_type):
             return False
 
         else:
