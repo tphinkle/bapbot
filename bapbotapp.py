@@ -28,6 +28,8 @@ bap_handler = handlers.BapHandler()
 
 @app.route('/')
 def home():
+    """
+    """
     return 'Testing'
 
 @app.route('/bap', methods=(GET, POST))
