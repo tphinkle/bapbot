@@ -9,13 +9,15 @@ from .http_handler import HTTPHandler
 from .exceptions import BapParseError
 
 
+
+
 class DiscordHandler(object):
     """
     """
 
     BAPBOT_NAME = 'bapbot'
     BAPBOT_FULL_NAME = 'bapbot#8352'
-    BAP_INICATOR = '!'
+    BAP_INICATOR = '#'
 
     def __init__(self):
         """
@@ -38,8 +40,9 @@ class DiscordHandler(object):
                 bappee = mention.name
 
         # Type
-        pattern = '(?=\!)(.*?)(?= )'
-        bap_type = re.search(pattern, message.content)[0].replace('!', '')
+        pattern = '(?=\{})(.*?)(?= )'.format(BAP_INDICATOR)
+        print(pattern)
+        bap_type = re.search(pattern, message.content)[0].replace(BAP_INDICATOR, '')
 
         return bapper, bappee, bap_type
 
