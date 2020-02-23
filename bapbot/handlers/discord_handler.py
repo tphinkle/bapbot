@@ -45,7 +45,7 @@ class DiscordHandler(object):
         return self._extract_bap_type(message) is not None
 
 
-    def receive_message(self, message):
+    def process_message(self, message):
         """
         """
         if self._is_bap_message(message):
@@ -74,7 +74,7 @@ class DiscordHandler(object):
         return bapper, bappee, bap_type
 
 
-    def receive_bap_event(self, message):
+    def process_bap_message(self, message):
         """
         """
 
