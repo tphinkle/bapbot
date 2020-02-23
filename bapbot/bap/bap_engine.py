@@ -16,9 +16,10 @@ class BapEngine(object):
     def _check_register_player(self, player_name):
         """
         """
-        player = db.functions.get_player(player_name)
+        player = db.functions.get_player(self._sql_handle, player_name)
         if player is None:
-            db.functions.register_new_player(player_name)
+            db.functions.register_new_player(self._sql_handle, player_name)
+
 
     def _bap_allowed(self, bapper, bap_type, timestamp):
         """
