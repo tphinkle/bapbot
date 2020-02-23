@@ -29,7 +29,7 @@ class DiscordHandler(object):
         """
         """
 
-        pattern = '(?=\{})(.*?)(?= )'.format(DiscordHandler.BAP_INDICATOR)
+        pattern = '(?={})(.*?)(?= )'.format('\' + DiscordHandler.BAP_INDICATOR)
         matches = re.search(pattern, message.content)
         print(pattern, message, matches)
 
