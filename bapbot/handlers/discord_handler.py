@@ -37,7 +37,7 @@ class DiscordHandler(object):
 
         # Type
         pattern = '(?=\!)(.*?)(?= )'
-        bap_type = re.search(message)[0].replace('!', '')
+        bap_type = re.search(pattern, message)[0].replace('!', '')
 
         return bapper, bappee, bap_type
 
