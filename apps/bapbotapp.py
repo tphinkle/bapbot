@@ -36,10 +36,14 @@ def home():
 def bap():
     if request.method == POST:
 
+        print(request.args)
+
         bapper = request.args.get(REST.bap.POST.BAPPER_KEY)
         bappee = request.args.get(REST.bap.POST.BAPPEE_KEY)
         bap_type = request.args.get(REST.bap.POST.BAP_TYPE_KEY)
         timestamp = request.args.get(REST.bap.POST.TIMESTAMP_KEY)
+
+        
 
         bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp)
 

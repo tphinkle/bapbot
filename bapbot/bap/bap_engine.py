@@ -37,6 +37,7 @@ class BapEngine(object):
     def attempt_bap(self, bapper, bappee, bap_type, timestamp_str):
         """
         """
+        
         timestamp = utils.timestamp_str_to_timestamp(timestamp_str)
         if self._bap_allowed(bapper, bap_type, timestamp):
             self._execute_bap(bapper, bappee, bap_type, timestamp)
