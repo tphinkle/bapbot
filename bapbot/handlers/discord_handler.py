@@ -27,6 +27,8 @@ class DiscordHandler(object):
         # Bapper
         bapper = message.author.name
 
+        print(dir(message))
+
         # Bappee
         mentions = message.mentions
         if len(mentions) > 2:
@@ -37,7 +39,7 @@ class DiscordHandler(object):
 
         # Type
         pattern = '(?=\!)(.*?)(?= )'
-        bap_type = re.search(pattern, message)[0].replace('!', '')
+        bap_type = re.search(pattern, message.content)[0].replace('!', '')
 
         return bapper, bappee, bap_type
 
