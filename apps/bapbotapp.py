@@ -32,7 +32,7 @@ def home():
     """
     return 'Testing'
 
-@app.route('/bap', methods=(POST))
+@app.route('/bap', methods=[POST])
 def bap():
     if request.method == POST:
 
@@ -45,7 +45,7 @@ def bap():
 
     return 'ok'
 
-@app.route('/player', methods=(GET))
+@app.route('/player', methods=[GET])
 def bap():
     if request.method == GET:
         player_name = request.args.get(REST.player.GET.PLAYER_NAME)
