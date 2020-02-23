@@ -79,7 +79,7 @@ class DiscordHandler(object):
         """
 
         # Execute the bap
-        timestamp = utils.get_timestamp()
+        timestamp = str(utils.get_timestamp())
         bapper, bappee, bap_type = self._parse_bap_message(message)
         bap_response = self._http_handler.POST_bap(bapper, bappee, bap_type, timestamp)
 
