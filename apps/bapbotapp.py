@@ -30,7 +30,7 @@ def _get_request_arg(request, key, error=True):
     """
     """
     arg = request.args.get(key)
-    if arg is None:
+    if arg is None and error:
         raise ValueError('Required arg is missing ({}), {}'.format(key, request.args))
     return arg
 
@@ -47,7 +47,9 @@ def bap():
         bapper = _get_request_arg(request, REST.bap.POST.BAPPER_KEY)
         bappee = _get_request_arg(request, REST.bap.POST.BAPPEE_KEY)
         bap_type = _get_request_arg(request, REST.bap.POST.BAP_TYPE_KEY)
-        timestamp = _get_request_arg(request, REST.bap.POST.TIMESTAMP_KEY)
+        timestamp = _get_request_arg(request, REST.bap.POST.TIMESTAMP_KEY, error=False)
+        if timestamp is None:
+            timestamp = utils.get_timestamp()
 
         bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp)
 

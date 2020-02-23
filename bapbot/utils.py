@@ -11,10 +11,12 @@ def get_timestamp():
     """
     return datetime.datetime.now()
 
+
 def get_today_date():
     """
     """
     return datetime.datetime.today().date()
+
 
 def timestamp_str_to_timestamp(timestamp_str):
     """
@@ -34,6 +36,7 @@ def load_discord_config():
     discord_config_file_path = os.path.join(curr_path.split('bapbot')[0], 'bapbot', 'tmp', 'discord.json')
     with open(discord_config_file_path, 'r') as file_handle:
         return json.load(file_handle)
+
 
 def load_server_config():
     """
