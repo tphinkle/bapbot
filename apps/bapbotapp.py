@@ -53,12 +53,4 @@ def bap():
     return 'ok'
 
 if __name__ == '__main__':
-
-
-    #@app.route('/bap', methods=(GET, POST))
-    #def bap():
-    #    if request.method == POST:
-    #        bap_handlers.handle_bap_post(request.args)
-    #    return 'ok'
-
     app.run()

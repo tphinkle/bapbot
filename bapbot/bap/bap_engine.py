@@ -8,8 +8,7 @@ from .. import database as db
 class BapEngine(object):
 
     def __init__(self):
-
-    self._sql_handle = db.database.SQLHandle.get_create()
+        self._sql_handle = db.database.SQLHandle.get_create()
 
 
     def _bap_allowed(self, bapper, bap_type, timestamp):
@@ -37,5 +36,7 @@ class BapEngine(object):
         if self.bap_allowed(bapper, bap_type, timestamp):
             self.execute_bap(bapper, bappee, bap_type, timestamp)
 
-        if bap_allowed:
-            self.execute_bap
+    def get_player(bapper, bappee, bap_type, timestamp):
+        """
+        """
+        pass
