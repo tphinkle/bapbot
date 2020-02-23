@@ -38,22 +38,22 @@ def get_baps(sql_handle, bapper=None, bappee = None, bap_type=None, date_dt=None
     conds = []
     if bapper is not None:
         kwargs['bapper'] = bapper
-        conds.append('{} = %(bapper)s'.format(schema.BapTrans.BAPPER))
+        conds.append('{} = %(bapper)s'.format(schema.BapTransSchema.BAPPER))
     if bappee is not None:
         kwargs['bappee'] = bappee
-        conds.append('{} = %(bappee)s'.format(schema.BapTrans.BAPPEE))
+        conds.append('{} = %(bappee)s'.format(schema.BapTransSchema.BAPPEE))
     if bap_type is not None:
         kwargs['bap_type'] = bap_type
-        conds.append('{} = %(bap_type)s'.format(schema.BapTrans.BAPTYPE))
+        conds.append('{} = %(bap_type)s'.format(schema.BapTransSchema.BAPTYPE))
     if date is not None:
         kwargs['date'] = date
-        conds.append('{}::date = %(date_dt)s'.format(schema.BapTrans.TIMESTAMP))
+        conds.append('{}::date = %(date_dt)s'.format(schema.BapTransSchema.TIMESTAMP))
 
     if len(conds) > 0:
         formatted_conds = ' AND '.join(conds)
-        query = "select * from {} where {}".format(schema.BapTrans.TABLE_NAME, formatted_conds)
+        query = "select * from {} where {}".format(schema.BapTransSchema.TABLE_NAME, formatted_conds)
     else:
-        query = "select * from {}".format(schema.BapTrans.TABLE_NAME)
+        query = "select * from {}".format(schema.BapTransSchema.TABLE_NAME)
     print('query!!!', query)
 
     baps = sql_handle.execute(query, **kwargs)
