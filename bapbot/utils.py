@@ -16,6 +16,17 @@ def get_today_date():
     """
     return datetime.datetime.today().date()
 
+def timestamp_str_to_timestamp(timestamp_str):
+    """
+    """
+
+    timestamp = datetime.strptime(timestamp_str, '%Y-%m-%dT H:%M:%S.%6')
+    print('timestamp_str', timestamp_str)
+    print('timestamp', timestamp)
+
+    return timestamp
+
+
 def load_discord_config():
     """
     """

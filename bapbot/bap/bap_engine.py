@@ -17,7 +17,8 @@ class BapEngine(object):
         """
         """
         # Check player can perform bap
-        baps_today = db.functions.get_num_baps_today(bapper, bap_type)
+        date = timestamp.date()
+        baps_today = db.functions.get_num_baps_on_date(bapper, bap_type, timestamp)
         max_baps = db.functions.get_max_baps_allowed(bapper, bap_type)
 
         if baps_today >= max_baps:
@@ -32,9 +33,10 @@ class BapEngine(object):
         db.functions.log_bap(bapper, bappee, bap_type, timestamp)
 
 
-    def attempt_bap(self, bapper, bappee, bap_type, timestamp):
+    def attempt_bap(self, bapper, bappee, bap_type, timestamp_str):
         """
         """
+        timestamp = utils.timestamp_str_to_timestamp(timestamp_str)
         if self._bap_allowed(bapper, bap_type, timestamp):
             self._execute_bap(bapper, bappee, bap_type, timestamp)
 
