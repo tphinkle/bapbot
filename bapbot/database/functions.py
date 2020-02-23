@@ -52,6 +52,10 @@ def _create_players(sql_handle):
 def register_new_player(sql_handle, name, join_date, level, experience):
     """
     """
+    players = get_player(sql_handle, player_name)
+    if len(players) > 0:
+        raise ValueError("Requested new player registration, but user already exists ({})".format(player_name))
+
     query = "INSERT INTO {} ({}, {}, {}, {}) VALUES (%(name)s, %(join_date)s, %(level)s, %(experience)s)" \
         .format(schema.PlayersSchema.TABLE_NAME,
                 schema.PlayersSchema.NAME,
@@ -68,11 +72,15 @@ def get_player(sql_handle, player_name):
         .format(schema.PlayersSchema.TABLE_NAME,
                 schema.PlayersSchema.NAME)
     players = sql_handle.execute(query, player_name=player_name)
-    player_name = player[0][0]
-    join_date = player[0][1]
-    level = player[0][2]
-    experience = player[0][3]
-    player_name, join_date, level, experience
+
+    if players is None:
+        return []
+        
+    player_name = players[0][0]
+    join_date = players[0][1]
+    level = players[0][2]
+    experience = players[0][3]
+    return (player_name, join_date, level, experience)
 
 
 
