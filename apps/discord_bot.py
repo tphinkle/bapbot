@@ -34,7 +34,7 @@ if __name__ == '__main__':
             return
 
         if '!bap' in message.content:
-            response = handler.handle_bap_event(message)
+            response = handler.receive_bap_event(message)
             await message.channel.send(response)
 
     client.run(DISCORD_CONFIG['bapbot']['token'])
