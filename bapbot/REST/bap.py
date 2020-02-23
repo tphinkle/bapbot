@@ -1,4 +1,8 @@
+
+ENDPOINT = 'bap'
+
 class POST(object):
+
 
     BAPPER_KEY = 'bapper'
     BAPPEE_KEY = 'bapee'
