@@ -44,14 +44,10 @@ def home():
 def bap():
     if request.method == POST:
 
-        data = json.loads(request.get_json())
-
-        print(type(data))
-        #data = request.args
-
-        print('JSON', request.get_json())
-        print('ARGS', request.args)
-
+        data = request.get_json()
+        if isinstance(data, str):
+            data = json.loads(data)
+    
         bapper = _get_request_arg(data, REST.bap.POST.BAPPER_KEY)
         bappee = _get_request_arg(data, REST.bap.POST.BAPPEE_KEY)
         bap_type = _get_request_arg(data, REST.bap.POST.BAP_TYPE_KEY)
