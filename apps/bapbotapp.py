@@ -26,6 +26,14 @@ app = Flask(__name__, instance_relative_config=True)
 # Set up the handlers
 bap_engine = BapEngine()
 
+def _get_request_arg(request, key, error=True):
+    """
+    """
+    arg = request.args.get(key)
+    if arg is None:
+        raise ValueError('Required arg is missing ({}), {}'.format(arg, request.args))
+    return arg
+
 @app.route('/')
 def home():
     """
@@ -36,14 +44,10 @@ def home():
 def bap():
     if request.method == POST:
 
-        print(request.args)
-
-        bapper = request.args.get(REST.bap.POST.BAPPER_KEY)
-        bappee = request.args.get(REST.bap.POST.BAPPEE_KEY)
-        bap_type = request.args.get(REST.bap.POST.BAP_TYPE_KEY)
-        timestamp = request.args.get(REST.bap.POST.TIMESTAMP_KEY)
-
-        
+        bapper = _get_request_arg(REST.bap.POST.BAPPER_KEY)
+        bappee = _get_request_arg(REST.bap.POST.BAPPEE_KEY)
+        bap_type = _get_request_arg(REST.bap.POST.BAP_TYPE_KEY)
+        timestamp = _get_request_arg(REST.bap.POST.TIMESTAMP_KEY)
 
         bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp)
 
