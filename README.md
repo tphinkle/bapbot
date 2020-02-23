@@ -8,6 +8,8 @@ https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#Working
 
 # Configuring the server
 1. See https://www.datasciencebytes.com/bytes/2015/02/24/running-a-flask-app-on-aws-ec2/
+  - Check error logs: `/var/log/apache2/error.log`
+  - Configure to take custom python path:
 
 # Flask
 1. Export FLASK_APP: `export FLASK_APP=bapbot`
