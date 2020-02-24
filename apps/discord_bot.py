@@ -34,8 +34,8 @@ if __name__ == '__main__':
             return
 
         response = handler.process_message(message)
+        response = json.dumps(response)
         print(response)
-        print(json.dumps(response))
-        await message.channel.send(json.dumps(response))
+        #await message.channel.send()
 
     client.run(DISCORD_CONFIG['bapbot']['token'])
