@@ -81,7 +81,7 @@ def _create_players(sql_handle):
 def register_new_player(sql_handle, name, join_date, level, experience):
     """
     """
-    players = get_player(sql_handle, player_name)
+    players = get_player(sql_handle, name)
     if len(players) > 0:
         raise ValueError("Requested new player registration, but user already exists ({})".format(player_name))
 
