@@ -30,12 +30,14 @@ if __name__ == '__main__':
 
     @client.event
     async def on_message(message):
+
         if message.author == client.user:
             return
 
         response = handler.process_message(message)
+        if response is None:
+            return
         response = json.dumps(response)
-        print(response)
-        #await message.channel.send()
+        await message.channel.send(response)
 
     client.run(DISCORD_CONFIG['bapbot']['token'])
