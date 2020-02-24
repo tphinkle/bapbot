@@ -23,7 +23,7 @@ def _create_bap_trans(sql_handle):
     """
     return _create_table_from_schema_object(sql_handle, schema.BapTransSchema)
 
-def log_bap(sql_handle, bapper, bappee, bap_type, timestamp):
+def log_bap(sql_handle, bapper, bappee, baptype, timestamp):
     """
     """
 
