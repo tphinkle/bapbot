@@ -1,5 +1,9 @@
 ## Imports
 
+
+# Scientific computing
+import bokeh
+
 # Project
 from .. import database as db
 from .. import utils

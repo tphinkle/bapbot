@@ -54,7 +54,7 @@ def bap():
         timestamp = _get_request_arg(data, REST.bap.POST.TIMESTAMP_KEY, error=False)
         if timestamp is None:
             timestamp = utils.get_timestamp()
-            
+
         return json.dumps(bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp))
 
 
@@ -64,6 +64,12 @@ def player():
         player_name = request.args.get(REST.player.GET.PLAYER_NAME)
         bap_engine.get_player(request.args)
     return 'ok'
+
+@app.route('/stats', methods=[GET])
+def stats():
+    if request.method == GET:
+        html = bap_engine.get_stats_plot()
+        return html
 
 if __name__ == '__main__':
     app.run()
