@@ -1,7 +1,7 @@
 ## Imports
 
 # Project
-from . import bap
+from .bap import Bap
 
 class Level(object):
     """
@@ -21,13 +21,13 @@ class Level(object):
     def get_daily_bap_limit(self, bap_type):
         """
         """
-        if bap_type == bap.BASIC_BAP:
+        if bap_type == Bap.BASIC_BAP:
             return self.daily_baps
-        elif bap_type == bap.POWER_BAP:
+        elif bap_type == Bap.POWER_BAP:
             return self.daily_baps_power
-        elif bap_type == bap.SUPER_BAP:
+        elif bap_type == Bap.SUPER_BAP:
             return self.daily_baps_super
-        elif bap_type == bap.ULTRA_BAP:
+        elif bap_type == Bap.ULTRA_BAP:
             return self.daily_baps_ultra
         else:
             return 0
