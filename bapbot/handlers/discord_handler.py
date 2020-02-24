@@ -58,7 +58,6 @@ class DiscordHandler(object):
         # Bapper
         bapper = message.author.name
 
-        print(message.content)
 
         # Bappee
         mentions = message.mentions

@@ -20,9 +20,8 @@ class HTTPHandler(object):
         """
         # Bapper
         data = REST.bap.POST.assemble(bapper, bappee, bap_type, timestamp)
-        print('POSTING', data)
         response = requests.post('http://127.0.0.1/{}'.format(REST.bap.ENDPOINT), json=data)
-        return 'poosted!'
+        return response
 
     @staticmethod
     def receive_bap_event(self):
