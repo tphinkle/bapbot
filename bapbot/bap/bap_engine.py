@@ -24,7 +24,7 @@ class BapEngine(object):
         if len(player) == 0:
             join_date = utils.get_timestamp()
             new_player = Player.get_new_player(player_name, join_date)
-            db.functions.register_new_player(self._sql_handle, new_player)
+            db.functions.register_new_player(self._sql_handle, new_player.name, new_player.join_date, new_player.level, new_player.experience)
 
     def _bap_allowed(self, player_name, bap_type, timestamp):
         """

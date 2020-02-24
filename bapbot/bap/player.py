@@ -8,8 +8,6 @@ STARTING_EXPERIENCE = 0
 
 ## Functions
 
-
-
 class Player(object):
     """
     """
