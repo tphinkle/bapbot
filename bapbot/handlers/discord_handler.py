@@ -40,6 +40,8 @@ class DiscordHandler(object):
         return bap_type
 
     def _is_bapbot_command(self, message):
+        """
+        """
         mentions = [mention.name for mention in mentions]
         return bool([BAPBOT_NAME in mention for mention in mentions])
 
@@ -52,7 +54,7 @@ class DiscordHandler(object):
     def process_message(self, message):
         """
         """
-        if _is_bapbot_command(message):
+        if self._is_bapbot_command(message):
 
             if '^admin' in message.content and message.author == 'prestonh#4863':
                 timestamp = str(utils.get_timestamp())
