@@ -24,7 +24,7 @@ if __name__ == '__main__':
     DISCORD_CONFIG = utils.load_discord_config()
     handler = DiscordHandler()
 
-    VALID_CHANNELS = ['bapbot_test']
+    VALID_CHANNELS = ['bapbot_test', 'general']
 
     @client.event
     async def on_ready():
@@ -47,7 +47,7 @@ if __name__ == '__main__':
         response = handler.process_message(message)
         if response is None:
             return
-            
+
         response = json.dumps(response)
 
         print('going to send response', response)
