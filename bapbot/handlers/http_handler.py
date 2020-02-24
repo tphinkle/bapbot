@@ -21,7 +21,10 @@ class HTTPHandler(object):
         # Bapper
         data = REST.bap.POST.assemble(bapper, bappee, bap_type, timestamp)
         response = requests.post('http://127.0.0.1/{}'.format(REST.bap.ENDPOINT), json=data)
-        return response
+        if response.status_code == 200:
+            return response.json
+        else:
+            raise ValueError('HTTP request failed ({}, {})'.format(response.status_code, data))
 
     @staticmethod
     def receive_bap_event(self):
