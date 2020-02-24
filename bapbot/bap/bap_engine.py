@@ -36,6 +36,9 @@ class BapEngine(object):
         player = Player(*db.functions.get_player(self._sql_handle, player_name))
         level = Level(*db.functions.get_level(self._sql_handle, player.level))
 
+        bap_limit = level.get_daily_bap_limit(bap_type)
+        print('bap limit', bap_type, bap_limit)
+
         if len(baps_today) >= level.get_daily_bap_limit(bap_type):
             return False
         else:
