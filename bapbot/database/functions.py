@@ -27,7 +27,7 @@ def log_bap(sql_handle, bapper, bappee, baptype, timestamp):
     """
     """
 
-    command = "insert into {}(timestamp, bapper, bappee, baptype) VALUES(%(timestamp)s, %(bapper)s, %(bappee)s, %(baptype)s)"
+    command = "insert into {} (timestamp, bapper, bappee, baptype) VALUES (%(timestamp)s, %(bapper)s, %(bappee)s, %(baptype)s)".format(schema.BapTransSSchema.TABLE_NAME)
     return sql_handle.execute(
         command, timestamp = timestamp, bapper = bapper, bappee = bappee, baptype = baptype)
 
