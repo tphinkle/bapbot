@@ -23,13 +23,13 @@ def _create_bap_trans(sql_handle):
     """
     return _create_table_from_schema_object(sql_handle, schema.BapTransSchema)
 
-def log_bap(sql_handle, bap):
+def log_bap(sql_handle, bapper, bappee, bap_type, timestamp):
     """
     """
 
     command = "insert into {}(timestamp, bapper, bappee, baptype) VALUES(%(timestamp)s, %(bapper)s, %(bappee)s, %(baptype)s)"
     return sql_handle.execute(
-        command, timestamp = bap.timestamp, bapper = bap.bapper, bappee = bap.bappee, baptype = bap.type)
+        command, timestamp = timestamp, bapper = bapper, bappee = bappee, baptype = baptype)
 
 def get_baps(sql_handle, bapper=None, bappee = None, bap_type=None, date_dt=None):
     """

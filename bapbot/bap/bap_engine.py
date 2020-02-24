@@ -44,7 +44,7 @@ class BapEngine(object):
     def _execute_bap(self, bapper, bappee, bap_type, timestamp):
         """
         """
-        db.functions.log_bap(bapper, bappee, bap_type, timestamp)
+        db.functions.log_bap(self._sql_handle, bapper, bappee, bap_type, timestamp)
 
     def attempt_bap(self, bapper, bappee, bap_type, timestamp):
         """
@@ -55,9 +55,6 @@ class BapEngine(object):
 
         self._check_register_player(bapper)
         self._check_register_player(bappee)
-
-
-
 
         if self._bap_allowed(bapper, bap_type, timestamp):
             self._execute_bap(bapper, bappee, bap_type, timestamp)
