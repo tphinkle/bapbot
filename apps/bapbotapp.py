@@ -47,7 +47,7 @@ def bap():
         data = request.get_json()
         if isinstance(data, str):
             data = json.loads(data)
-    
+
         bapper = _get_request_arg(data, REST.bap.POST.BAPPER_KEY)
         bappee = _get_request_arg(data, REST.bap.POST.BAPPEE_KEY)
         bap_type = _get_request_arg(data, REST.bap.POST.BAP_TYPE_KEY)
@@ -55,9 +55,8 @@ def bap():
         if timestamp is None:
             timestamp = utils.get_timestamp()
 
-        bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp)
+        return bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp)
 
-    return 'ok'
 
 @app.route('/player', methods=[GET])
 def player():
