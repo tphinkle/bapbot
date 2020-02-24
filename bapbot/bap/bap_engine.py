@@ -59,7 +59,7 @@ class BapEngine(object):
         if self._bap_allowed(bapper, bap_type, timestamp):
             self._execute_bap(bapper, bappee, bap_type, timestamp)
             baps = db.functions.get_baps(
-                self._sql_handle, bappee=bappee, date_dt=utils.get_today_today())
+                self._sql_handle, bappee=bappee, date_dt=utils.get_today_date())
 
 
             return {'bap': 'success', 'num_baps_today': len(baps)}
