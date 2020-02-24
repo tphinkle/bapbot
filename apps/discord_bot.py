@@ -24,12 +24,17 @@ if __name__ == '__main__':
     DISCORD_CONFIG = utils.load_discord_config()
     handler = DiscordHandler()
 
+    VALID_CHANNELS = 1
+
     @client.event
     async def on_ready():
         print('We have logged in as {0.user}'.format(client))
 
     @client.event
     async def on_message(message):
+
+        print(message.channel)
+        return
 
         # Avoid infinite looop
         if message.author == client.user:
@@ -42,6 +47,6 @@ if __name__ == '__main__':
         response = json.dumps(response)
 
         print('going to send response', response)
-        #await message.channel.send(response)
+        await message.channel.send(response)
 
     client.run(DISCORD_CONFIG['bapbot']['token'])
