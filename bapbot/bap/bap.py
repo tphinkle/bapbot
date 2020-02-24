@@ -15,7 +15,7 @@ class Bap(object):
     ULTRA_BAP = 'ultrabap'
     BAP_TYPES = [BASIC_BAP, POWER_BAP, SUPER_BAP, ULTRA_BAP]
 
-    def __init__(self, bapper, bappee, type, timestamp):
+    def __init__(self, timestamp, bapper, bappee, type):
         """
         """
 
