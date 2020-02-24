@@ -21,7 +21,7 @@ class BapEngine(object):
         """
         """
         player = db.functions.get_player(self._sql_handle, player_name)
-        if player is None:
+        if len(player) == 0:
             join_date = utils.get_timestamp()
             new_player = player.get_new_player(player_name, join_date)
             db.functions.register_new_player(self._sql_handle, new_player)
