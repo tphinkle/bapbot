@@ -55,7 +55,9 @@ def bap():
         if timestamp is None:
             timestamp = utils.get_timestamp()
 
-        return bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp)
+        raise ValueError(bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp))
+
+        return json.dumps(bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp))
 
 
 @app.route('/player', methods=[GET])
