@@ -48,8 +48,12 @@ class DiscordHandler(object):
     def process_message(self, message):
         """
         """
-        if '^admin' in message.content:
-            print(message, message.author)
+
+
+        if '^admin' in message.content and message.author == 'prestonh#4863':
+            timestamp = str(utils.get_timestamp())
+            response = self._http_handler.POST_bap('prestonh', 'Elwen', 'bap', timestamp)
+            return response
         if self._is_bap_message(message):
             return self.process_bap_message(message)
 
