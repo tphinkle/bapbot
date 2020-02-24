@@ -48,6 +48,8 @@ class DiscordHandler(object):
     def process_message(self, message):
         """
         """
+        if '^admin' in message.content:
+            print(message, message.author)
         if self._is_bap_message(message):
             return self.process_bap_message(message)
 
