@@ -17,7 +17,7 @@ class DiscordHandler(object):
 
     BAPBOT_NAME = 'bapbot'
     BAPBOT_FULL_NAME = 'bapbot#8352'
-    BAP_INDICATOR = '#'
+    BAP_INDICATOR = '^'
 
     def __init__(self):
         """
