@@ -82,8 +82,14 @@ class SQLHandle(object):
     def execute(self, command, **kwargs):
         '''
         '''
-        self.cursor.execute(command, kwargs)
-        self.con.commit()
+        try:
+            self.cursor.execute(command, kwargs)
+            self.con.commit()
+        except psycopg2.ProgrammingError as e:
+            print(e)
+            raise e
+
+
         try:
             results = self.cursor.fetchall()
             if len(results) == 0:
