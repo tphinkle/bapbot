@@ -2,9 +2,9 @@
 
 ## Globals
 BASIC_BAP = 'bap'
-POWER_BAP = 'power'
-SUPER_BAP = 'super'
-ULTRA_BAP = 'ultra'
+POWER_BAP = 'powerbap'
+SUPER_BAP = 'superbap'
+ULTRA_BAP = 'ultrabap'
 BAP_TYPES = [BASIC_BAP, POWER_BAP, SUPER_BAP, ULTRA_BAP]
 
 
