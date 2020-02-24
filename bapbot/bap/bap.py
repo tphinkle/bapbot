@@ -1,7 +1,7 @@
 ## Imports
 
 ## Globals
-BASIC_BAP = 'basic'
+BASIC_BAP = 'bap'
 POWER_BAP = 'power'
 SUPER_BAP = 'super'
 ULTRA_BAP = 'ultra'
