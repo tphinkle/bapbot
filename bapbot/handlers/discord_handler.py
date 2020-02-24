@@ -49,7 +49,10 @@ class DiscordHandler(object):
         """
         """
         if self._is_bap_message(message):
-            self.process_bap_message(message)
+            return self.process_bap_message(message)
+
+        else:
+            return None
 
 
     def _parse_bap_message(self, message):
