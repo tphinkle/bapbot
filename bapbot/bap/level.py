@@ -29,3 +29,5 @@ class Level(object):
             return self.daily_baps_super
         elif bap_type == bap.ULTRA_BAP:
             return self.daily_baps_ultra
+        else:
+            return 0
