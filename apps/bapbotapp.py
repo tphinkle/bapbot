@@ -54,9 +54,7 @@ def bap():
         timestamp = _get_request_arg(data, REST.bap.POST.TIMESTAMP_KEY, error=False)
         if timestamp is None:
             timestamp = utils.get_timestamp()
-
-        raise ValueError(bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp))
-
+            
         return json.dumps(bap_engine.attempt_bap(bapper, bappee, bap_type, timestamp))
 
 
