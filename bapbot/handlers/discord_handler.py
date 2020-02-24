@@ -43,7 +43,6 @@ class DiscordHandler(object):
         """
         """
         mention_names = [mention.name for mention in message.mentions]
-        print(mention_names)
         return bool([DiscordHandler.BAPBOT_NAME in mention_name for mention_name in mention_names])
 
     def _is_bap_message(self, message):

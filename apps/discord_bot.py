@@ -35,8 +35,8 @@ if __name__ == '__main__':
 
         # Only valid channels
         channel = message.channel
-        print('channel', channel, dir(channel))
-        if channel not in VALID_CHANNELS:
+        print('channel', channel, dir(channel), channel.name)
+        if channel.name not in VALID_CHANNELS:
             return
 
         # Avoid infinite looop
