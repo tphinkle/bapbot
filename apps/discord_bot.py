@@ -31,13 +31,17 @@ if __name__ == '__main__':
     @client.event
     async def on_message(message):
 
+        # Avoid infinite looop
         if message.author == client.user:
             return
 
+        # Actual content
         response = handler.process_message(message)
         if response is None:
             return
         response = json.dumps(response)
-        await message.channel.send(response)
+
+        print('going to send response', response)
+        #await message.channel.send(response)
 
     client.run(DISCORD_CONFIG['bapbot']['token'])

@@ -39,6 +39,10 @@ class DiscordHandler(object):
             bap_type = matches[0].replace(DiscordHandler.BAP_INDICATOR, '')
         return bap_type
 
+    def _is_bapbot_command(self, message):
+        mentions = [mention.name for mention in mentions]
+        return bool([BAPBOT_NAME in mention for mention in mentions])
+
     def _is_bap_message(self, message):
         """
         """
@@ -48,13 +52,17 @@ class DiscordHandler(object):
     def process_message(self, message):
         """
         """
+        if _is_bapbot_command(message):
 
-        if '^admin' in message.content and message.author == 'prestonh#4863':
-            timestamp = str(utils.get_timestamp())
-            response = self._http_handler.POST_bap('prestonh', 'Elwen', 'bap', timestamp)
-            return response
-        elif self._is_bap_message(message):
-            return self.process_bap_message(message)
+            if '^admin' in message.content and message.author == 'prestonh#4863':
+                timestamp = str(utils.get_timestamp())
+                response = self._http_handler.POST_bap('prestonh', 'Elwen', 'bap', timestamp)
+                return response
+            elif self._is_bap_message(message):
+                return self.process_bap_message(message)
+
+            else:
+                return None
 
         else:
             return None
