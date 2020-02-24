@@ -70,7 +70,7 @@ class BapEngine(object):
 
 
 
-            return {'bap': 'success', 'num_baps_today': len(baps)}
+            return {'bap': 'success', 'baps_today': bap_count}
 
         else:
             return {'bap': 'fail'}
