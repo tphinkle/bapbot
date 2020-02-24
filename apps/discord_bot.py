@@ -35,6 +35,7 @@ if __name__ == '__main__':
 
         # Only valid channels
         channel = message.channel
+        print('channel', channel)
         if channel not in VALID_CHANNELS:
             return
 
@@ -46,6 +47,7 @@ if __name__ == '__main__':
         response = handler.process_message(message)
         if response is None:
             return
+            
         response = json.dumps(response)
 
         print('going to send response', response)
