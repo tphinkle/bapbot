@@ -17,7 +17,6 @@ def _create_table_from_schema_object(sql_handle, schema_object):
     print(CREATE_TABLE_CMD)
     return sql_handle.execute(CREATE_TABLE_CMD)
 
-
 def _create_bap_trans(sql_handle):
     """
     """

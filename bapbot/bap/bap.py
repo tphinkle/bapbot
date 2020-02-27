@@ -5,7 +5,7 @@
 
 
 ## Functions
-class Bap(object):
+class BapAttempt(object):
     """
     """
 
@@ -27,26 +27,31 @@ class Bap(object):
 
 
 
-class BapResult(object):
+class BapAttemptResult(object):
+    """
+    """
+
     def __init__(self, attempted_bap):
         """
         """
         self.attempted_bap = attempted_bap
-        pass
 
-    @property
-    def success(self):
-        """
-        """
-        return (len(failures) == 0)
 
-    @property
-    def fail(self):
-        """
-        """
-        return (len(failures) > 0)
+class BapAttemptSuccess(BapAttemptResult):
+    """
+    """
 
-    def add_failed_bap_on_cooldown():
+    def __init__(self, attempted_bap):
         """
         """
-        pass
+        super(self).__init__(attempted_bap)
+
+
+class BapAttemptFailure(BapAttemptResult):
+    """
+    """
+
+    def __init__(self, attempted_bap):
+        """
+        """
+        super(self).__init__(attempted_bap)
