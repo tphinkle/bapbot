@@ -71,6 +71,12 @@ def get_bapper_num_baps_on_date(sql_handle, bapper, bap_type, date_dt):
                 schema.BapTransSchema.BAPTYPE)
     return sql_handle.execute(query, bapper=bapper, date_dt=date_dt, bap_type=bap_type)
 
+def get_bap_counts_by_player(sql_handle):
+    """
+    """
+    query = "select count(*) from {} groupby {}".format(schema.BapTransSchema.TABLE_NAME, schema.BapTransSchema.PLAYER_NAME)
+    return sql_handle.execute(query)
+
 
 def _create_players(sql_handle):
     """

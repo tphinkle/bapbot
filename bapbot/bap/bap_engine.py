@@ -79,7 +79,7 @@ class BapEngine(object):
         else:
             return {'bap': 'fail'}
 
-    def get_player(self, bapper, bappee, bap_type, timestamp):
+    def get_stats_plot(self):
         """
         """
-        pass
+        db.functions.
