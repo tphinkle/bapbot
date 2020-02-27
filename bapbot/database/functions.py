@@ -61,7 +61,7 @@ def get_baps(sql_handle, bapper=None, bappee = None, bap_type=None, date_dt=None
         return []
     return baps
 
-def get_bapper_num_baps_on_date(sql_handle, bapper, bap_type, date_dt):
+def get_bapper_counts_by_bapper_date(sql_handle, bapper, bap_type, date_dt):
     """
     """
     query = "select count(*) from {} where {} = %(bapper)s and {}::date = %(date_dt)s and {} = %(bap_type)s" \
@@ -71,10 +71,32 @@ def get_bapper_num_baps_on_date(sql_handle, bapper, bap_type, date_dt):
                 schema.BapTransSchema.BAPTYPE)
     return sql_handle.execute(query, bapper=bapper, date_dt=date_dt, bap_type=bap_type)
 
-def get_bap_counts_by_player(sql_handle):
+def get_bap_counts_by_bapper(sql_handle):
     """
     """
-    query = "select count(*) from {} groupby {}".format(schema.BapTransSchema.TABLE_NAME, schema.BapTransSchema.PLAYER_NAME)
+    query = "select count({}) from {} groupby {}".format(
+        schema.BapTransSchema.BAPPER_NAME,
+        schema.BapTransSchema.TABLE_NAME,
+        schema.BapTransSchema.BAPPER_NAME)
+    return sql_handle.execute(query)
+
+def get_bap_counts_by_bappee(sql_handle):
+    """
+    """
+    query = "select count({}) from {} groupby {}".format(
+        schema.BapTransSchema.BAPPER_NAME,
+        schema.BapTransSchema.TABLE_NAME,
+        schema.BapTransSchema.BAPPER_NAME)
+    return sql_handle.execute(query)
+
+def get_bap_counts_by_bapper_bappee(sql_handle):
+    """
+    """
+    query = "select count({}) from {} groupby ({}, {})".format(
+        schema.BapTransSchema.TIMESTAMP,
+        schema.BapTransSchema.TABLE_NAME,
+        schema.BapTransSchema.BAPPER_NAME,
+        schema.BapTransSchema.BAPPEE_NAME)
     return sql_handle.execute(query)
 
 
