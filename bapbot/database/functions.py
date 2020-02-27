@@ -74,7 +74,7 @@ def get_bapper_counts_by_bapper_date(sql_handle, bapper, bap_type, date_dt):
 def get_bap_counts_by_bapper(sql_handle):
     """
     """
-    query = "select count({}) from {} groupby {}".format(
+    query = "select count({}) from {} group by {}".format(
         schema.BapTransSchema.BAPPEE,
         schema.BapTransSchema.TABLE_NAME,
         schema.BapTransSchema.BAPPER)
@@ -83,7 +83,7 @@ def get_bap_counts_by_bapper(sql_handle):
 def get_bap_counts_by_bappee(sql_handle):
     """
     """
-    query = "select count({}) from {} groupby {}".format(
+    query = "select count({}) from {} group by {}".format(
         schema.BapTransSchema.BAPPER,
         schema.BapTransSchema.TABLE_NAME,
         schema.BapTransSchema.BAPPEE)
@@ -92,7 +92,7 @@ def get_bap_counts_by_bappee(sql_handle):
 def get_bap_counts_by_bapper_bappee(sql_handle):
     """
     """
-    query = "select count({}) from {} groupby ({}, {})".format(
+    query = "select count({}) from {} group by ({}, {})".format(
         schema.BapTransSchema.TIMESTAMP,
         schema.BapTransSchema.TABLE_NAME,
         schema.BapTransSchema.BAPPER,
