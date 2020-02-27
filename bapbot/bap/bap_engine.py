@@ -86,7 +86,8 @@ class BapEngine(object):
         """
         """
         bapper_bap_counts = db.functions.get_bap_counts_by_bapper(self._sql_handle)
-        bappee_bap_counts = db.functions.get_bap_counts_by_bappe(self._sql_handle)
+        bappee_bap_counts = db.functions.get_bap_counts_by_bappee(self._sql_handle)
         bapper_bappee_bap_counts = db.functions.get_bap_counts_by_bapper_bappee(self._sql_handle)
+
 
         raise ValueError(bapper_bap_counts)
