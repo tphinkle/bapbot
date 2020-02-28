@@ -12,6 +12,6 @@ def create_bapper_stats_plot(bappers, bap_counts):
     """
     """
     plot = figure(x_range=bappers, )
-    plot.vbar(x=bappers, top=bap_counts)
+    plot.vbar(x=bappers, top=bap_counts, width = 0.1)
     plot_html = bokeh.embed.file_html(plot, bokeh.resources.CDN, title='bapper stats')
     return plot_html
