@@ -1,4 +1,4 @@
-from bokeh.io impoort show, output_figure
+from bokeh.io import show, output_figure
 from bokeh.plotting import figure
 import bokeh.resources
 
