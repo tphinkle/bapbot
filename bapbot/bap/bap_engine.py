@@ -6,6 +6,7 @@ import bokeh
 
 # Project
 from .. import database as db
+from . import plots
 from .. import utils
 from .bap import Bap
 from .level import Level
