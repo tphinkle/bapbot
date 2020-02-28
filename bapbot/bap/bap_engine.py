@@ -103,6 +103,9 @@ class BapEngine(object):
     def get_stats_plot(self):
         """
         """
-        plot_html = self._get_bappee_stats_plot()
+        bapper_html = self._get_bappee_stats_plot()
+        bappee_html = self._get_bapper_stats_plot()
+
+        plot_html = '\n\n\n'.join([bapper_html, bappee_html])
 
         return plot_html
