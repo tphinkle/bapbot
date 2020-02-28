@@ -90,10 +90,19 @@ class BapEngine(object):
         plot_html = plots.create_bapper_stats_plot(bappers, bap_counts)
         return plot_html
 
+    def _get_bappee_stats_plot(self):
+        """
+        """
+        bapper_bap_counts = db.functions.get_bap_counts_by_bappee(self._sql_handle)
+        bappers = [ele[0] for ele in bapper_bap_counts]
+        bap_counts = [ele[1] for ele in bapper_bap_counts]
+        plot_html = plots.create_bappee_stats_plot(bappers, bap_counts)
+        return plot_html
+
 
     def get_stats_plot(self):
         """
         """
-        plot_html = self._get_bapper_stats_plot()
+        plot_html = self._get_bappee_stats_plot()
 
         return plot_html
