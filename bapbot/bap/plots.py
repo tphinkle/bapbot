@@ -1,4 +1,6 @@
-from bokeh.io import show, output_figure
+## Imports
+
+# Scientific computing
 from bokeh.plotting import figure
 import bokeh.resources
 
