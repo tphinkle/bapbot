@@ -80,14 +80,19 @@ class BapEngine(object):
             return {'bap': 'fail'}
 
 
+    def _get_bapper_stats_plot(self):
+        """
+        """
+        bapper_bap_counts = db.functions.get_bap_counts_by_bapper(self._sql_handle)
+        bappers = [ele[0] for ele in bapper_bap_counts]
+        bap_counts = [ele[1] for ele in bapper_bap_counts]
+        plot_html = plots.create_bapper_stats_plot(bappers, bap_counts)
+        return plot_html
 
 
     def get_stats_plot(self):
         """
         """
-        bapper_bap_counts = db.functions.get_bap_counts_by_bapper(self._sql_handle)
-        bappee_bap_counts = db.functions.get_bap_counts_by_bappee(self._sql_handle)
-        bapper_bappee_bap_counts = db.functions.get_bap_counts_by_bapper_bappee(self._sql_handle)
+        plot_html = self._get_bapper_stats_plot()
 
-
-        raise ValueError(bapper_bap_counts)
+        return plot_html
