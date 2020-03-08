@@ -1,52 +1,50 @@
 ## Imports
 
 ## Globals
-
+BASIC_BAP = 'bap'
+POWER_BAP = 'powerbap'
+SUPER_BAP = 'superbap'
+ULTRA_BAP = 'ultrabap'
+BAP_TYPES = [BASIC_BAP, POWER_BAP, SUPER_BAP, ULTRA_BAP]
 
 
 ## Functions
-class Bap(object):
+class BapAttempt(object):
     """
     """
-
-    BASIC_BAP = 'bap'
-    POWER_BAP = 'powerbap'
-    SUPER_BAP = 'superbap'
-    ULTRA_BAP = 'ultrabap'
-    BAP_TYPES = [BASIC_BAP, POWER_BAP, SUPER_BAP, ULTRA_BAP]
-
     def __init__(self, timestamp, bapper, bappee, type):
         """
         """
-
-
         self.bapper = bapper
         self.bappee = bappee
         self.type = type
         self.timestamp = timestamp
 
+class BapAttemptResult(object):
+    """
+    """
 
-
-class BapResult(object):
     def __init__(self, attempted_bap):
         """
         """
         self.attempted_bap = attempted_bap
-        pass
 
-    @property
-    def success(self):
-        """
-        """
-        return (len(failures) == 0)
 
-    @property
-    def fail(self):
-        """
-        """
-        return (len(failures) > 0)
+class BapAttemptSuccess(BapAttemptResult):
+    """
+    """
 
-    def add_failed_bap_on_cooldown():
+    def __init__(self, attempted_bap):
         """
         """
-        pass
+        super(self).__init__(attempted_bap)
+
+
+class BapAttemptFailure(BapAttemptResult):
+    """
+    """
+
+    def __init__(self, attempted_bap):
+        """
+        """
+        super(self).__init__(attempted_bap)

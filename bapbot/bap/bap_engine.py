@@ -48,23 +48,25 @@ class BapEngine(object):
         else:
             return True
 
-    def _execute_bap(self, bapper, bappee, bap_type, timestamp):
+    def _execute_bap(self, bap_attempt):
         """
         """
-        db.functions.log_bap(self._sql_handle, bapper, bappee, bap_type, timestamp)
+        db.functions.log_bap(self._sql_handle, bap_attempt.bapper, bap_attempt.bappee, bap_attempt.bap_type, bap_attempt.timestamp)
 
-    def attempt_bap(self, bapper, bappee, bap_type, timestamp):
+
+    def attempt_bap(self, bap_attempt):
         """
         """
 
-        if isinstance(timestamp, str):
-            timestamp = utils.timestamp_str_to_timestamp(timestamp)
+        if isinstance(bap_attempt.timestamp, str):
+            bap_attempt.timestamp = utils.timestamp_str_to_timestamp(bap_attempt.timestamp)
 
-        self._check_register_player(bapper)
-        self._check_register_player(bappee)
+        self._check_register_player(bap_attempt.bapper)
+        self._check_register_player(bap_attempt.bappee)
 
-        if self._bap_allowed(bapper, bap_type, timestamp):
-            self._execute_bap(bapper, bappee, bap_type, timestamp)
+        if self._bap_allowed(bap_attempt.bapper, bap_attempt.bap_type, bap_attempt.timestamp):
+            self._execute_bap(bap_attempt.bapper, bap_attempt.bappee, bap_attempt.bap_type, bap_attempt.timestamp)
+
             baps = [Bap(*bap) for bap in db.functions.get_baps(
                 self._sql_handle, bappee=bappee, date_dt=utils.get_today_date())]
 
