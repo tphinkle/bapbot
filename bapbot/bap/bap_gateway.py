@@ -30,7 +30,7 @@ class BapGateway(object):
         """
 
         # Deserialize the request
-        
+
 
         # Perform the reequest
         bap_attempt = REST.bap.deserialize(data)BapAttempt(bapper, bappee, bap_type, timestamp)
@@ -55,7 +55,7 @@ class BapGateway(object):
             timestamp = utils.get_timestamp()
 
         # Perform the request
-        bap_attempt = BapAttempt(bapper, bappee, bap_type, timestamp)
+        bap_attempt = BapAttempt(**data)
         bap_result = bap_engine.attempt_bap(bap_attempt)
 
         # Serialize the request

@@ -1,31 +1,24 @@
 ## Imports
 
 ## Globals
-
+BASIC_BAP = 'bap'
+POWER_BAP = 'powerbap'
+SUPER_BAP = 'superbap'
+ULTRA_BAP = 'ultrabap'
+BAP_TYPES = [BASIC_BAP, POWER_BAP, SUPER_BAP, ULTRA_BAP]
 
 
 ## Functions
 class BapAttempt(object):
     """
     """
-
-    BASIC_BAP = 'bap'
-    POWER_BAP = 'powerbap'
-    SUPER_BAP = 'superbap'
-    ULTRA_BAP = 'ultrabap'
-    BAP_TYPES = [BASIC_BAP, POWER_BAP, SUPER_BAP, ULTRA_BAP]
-
     def __init__(self, timestamp, bapper, bappee, type):
         """
         """
-
-
         self.bapper = bapper
         self.bappee = bappee
         self.type = type
         self.timestamp = timestamp
-
-
 
 class BapAttemptResult(object):
     """
